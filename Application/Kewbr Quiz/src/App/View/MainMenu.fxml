@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+
+<AnchorPane fx:id="rootPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <VBox fx:id="vboxMainButtons" layoutX="258.0" layoutY="135.0" spacing="10.0">
+         <children>
+            <Button fx:id="btnJoinGame" mnemonicParsing="false" prefHeight="25.0" prefWidth="85.0" text="Join Game" />
+            <Button fx:id="btnCreateGame" mnemonicParsing="false" text="Create Game" />
+            <Button fx:id="btnSettings" mnemonicParsing="false" prefHeight="25.0" prefWidth="85.0" text="Settings" />
+            <Button fx:id="btnExit" mnemonicParsing="false" prefHeight="25.0" prefWidth="85.0" text="Exit" />
+         </children>
+      </VBox>
+      <HBox fx:id="hboxUser" alignment="CENTER" layoutX="503.0" layoutY="14.0" spacing="10.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="14.0">
+         <children>
+            <ImageView fx:id="imgvAvatar" fitHeight="45.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true" />
+            <Label fx:id="lblNickname" text="Nickname" />
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>
