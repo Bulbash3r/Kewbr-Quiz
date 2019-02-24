@@ -24,6 +24,10 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+/**
+ * Класс контроллера меню выбора аватара и ника
+ * @author NikiTer
+ */
 public class UserAvatar implements Initializable {
 
     private @FXML Button btnOK;
@@ -35,11 +39,15 @@ public class UserAvatar implements Initializable {
     private ControllersManager manager;
     private Stage stage;
 
+    /**
+     * Конструктор
+     * @param manager -- ссылка на центральный контроллер
+     */
     public UserAvatar(ControllersManager manager){
         this.manager = manager;
-
         stage = new Stage();
 
+        //Ставим сами себя в качестве контроллера и загружаем fxml разметку на сцену
         try {
             FXMLLoader loader = new FXMLLoader(Main.class.getResource("View/UserAvatar.fxml"));
             loader.setController(this);
@@ -51,12 +59,23 @@ public class UserAvatar implements Initializable {
         }
 
         stage.show();
-        System.out.println("Is works!");
     }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
+        /*
+        Установка слушателя на поле для ввода никнейма,
+        который будет запрещать вводить никнейм длинее 20 символов
+        или пустой
+         */
         txtfieldNickname.textProperty().addListener(new ChangeListener<String>() {
+            /**
+             * Выключает кнопку "OK" при пустом поле, или если
+             * никнейм длинее 20 символов. Также, при 20 символах
+             * показывает предупреждение "Too large"
+             * @param newValue -- текущее значение поля (никнейм)
+             */
             @Override
             public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
                 if (newValue.length() > 20) {
@@ -73,18 +92,37 @@ public class UserAvatar implements Initializable {
             }
         });
 
+        /*
+        Установка обработчика событий на аватар, который,
+        при нажатии на аватар, будет вызывать проводник
+        для выбора нового аватара
+         */
         imgvAvatar.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            /**
+             * @see UserAvatar#avatarChoose()
+             */
             @Override
             public void handle(MouseEvent event) {
                 avatarChoose();
             }
         });
 
+        //Чтобы при запуске окна, там уже были текущий ник и аватар
         txtfieldNickname.setText(manager.getMainMenu().getNickname());
         imgvAvatar.setImage(manager.getMainMenu().getAvatarPic());
         imgvAvatar.setSmooth(true);
 
+        /*
+        Установка обработчика событий на кнопку "OK", который,
+        при нажатии на кнопку, будет закрывать приложение и
+        менять старые ник и аватар на новые
+         */
         btnOK.setOnAction(new EventHandler<ActionEvent>() {
+            /**
+             * @see ControllersManager#getMainMenu()
+             * @see MainMenu#setAvatarPic(Image)
+             * @see MainMenu#setNickname(String)
+             */
             @Override
             public void handle(ActionEvent event) {
                 manager.getMainMenu().setNickname(txtfieldNickname.getText());
@@ -94,13 +132,22 @@ public class UserAvatar implements Initializable {
         });
     }
 
+    /**
+     * Метод вызова проводника для выбора нового аватара
+     */
     private void avatarChoose() {
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Choose your avatar picture");
+
+        /*
+        Добавление фильтров, которые позволят выбирать
+        только .png и .jpg файлы
+         */
         fileChooser.getExtensionFilters().addAll(
                 new FileChooser.ExtensionFilter("JPG", "*.jpg"),
                 new FileChooser.ExtensionFilter("PNG", "*.png")
         );
+
         File pic = fileChooser.showOpenDialog(stage);
         imgvAvatar.setImage(new Image("file:" + pic.getPath()));
     }

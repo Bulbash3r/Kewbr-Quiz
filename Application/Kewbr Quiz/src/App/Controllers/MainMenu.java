@@ -10,11 +10,14 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
-import javafx.stage.FileChooser;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
+/**
+ * Класс контроллера главного меню
+ * @author NikiTer
+ */
 public class MainMenu implements Initializable {
 
     private @FXML Button btnJoinGame;
@@ -28,20 +31,39 @@ public class MainMenu implements Initializable {
 
     private ControllersManager manager;
 
-    public MainMenu(ControllersManager manager) {
+    /**
+     * Конструктор
+     * @param manager -- ссылка на центральный контроллер
+     */
+    MainMenu(ControllersManager manager) {
         this.manager = manager;
     }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
+        /*
+        Установка обработчика событий на кнопку выхода,
+        который инициирует закрытие приложения при нажатии на кнопку
+         */
         btnExit.setOnAction(new EventHandler<ActionEvent>() {
+            /**
+             * @see ControllersManager#close()
+             */
             @Override
             public void handle(ActionEvent event) {
                 manager.close();
             }
         });
 
+        /*
+        Установка обработчика событий на худ пользователя,
+        который инициирует вызов меню выбора аватара и ника
+         */
         hboxUser.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            /**
+             * @see ControllersManager#createUserAvaterMenu()
+             */
             @Override
             public void handle(MouseEvent event) {
                 manager.createUserAvaterMenu();
@@ -52,18 +74,34 @@ public class MainMenu implements Initializable {
         imgvAvatar.setSmooth(true);
     }
 
+    /**
+     * Метод получения текущего никнейма пользователя
+     * @return возвращает никнейм
+     */
     public String getNickname() {
         return lblNickname.getText();
     }
 
+    /**
+     * Метод установки нового никнейма пользователя
+     * @param nickname -- новый никнейм
+     */
     public void setNickname(String nickname) {
         lblNickname.setText(nickname);
     }
 
+    /**
+     * Метод получения изображения из текущего аватара пользователя
+     * @return возвращает изображение
+     */
     public Image getAvatarPic() {
         return imgvAvatar.getImage();
     }
 
+    /**
+     * Метод установки нового изображения аватара пользователя
+     * @param image -- новое изображение
+     */
     public void setAvatarPic(Image image) {
         imgvAvatar.setImage(image);
     }

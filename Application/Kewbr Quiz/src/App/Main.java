@@ -9,6 +9,10 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
+/**
+ * Главный класс Main
+ * @author NikiTer
+ */
 public class Main extends Application {
 
     Stage prStage;
@@ -21,6 +25,7 @@ public class Main extends Application {
 
         manager = new ControllersManager(this);
 
+        //Ставим свой контроллер и загружаем fxml разметку на сцену
         try {
             FXMLLoader loader = new FXMLLoader(Main.class.getResource("View/MainMenu.fxml"));
             loader.setController(manager.getMainMenu());
@@ -33,6 +38,9 @@ public class Main extends Application {
         prStage.show();
     }
 
+    /**
+     * Метод, использующийся для закрытия приложения
+     */
     public final void close() {
         prStage.close();
     }
