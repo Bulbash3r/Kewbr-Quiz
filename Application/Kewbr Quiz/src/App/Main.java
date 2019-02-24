@@ -36,6 +36,7 @@ public class Main extends Application {
         }
 
         prStage.show();
+        System.out.println("It working!!!");
     }
 
     /**
