@@ -6,9 +6,11 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
+import javafx.stage.FileChooser;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -45,6 +47,9 @@ public class MainMenu implements Initializable {
                 manager.createUserAvaterMenu();
             }
         });
+
+        imgvAvatar.setImage(new Image("file:Images/user.png"));
+        imgvAvatar.setSmooth(true);
     }
 
     public String getNickname() {
@@ -53,5 +58,13 @@ public class MainMenu implements Initializable {
 
     public void setNickname(String nickname) {
         lblNickname.setText(nickname);
+    }
+
+    public Image getAvatarPic() {
+        return imgvAvatar.getImage();
+    }
+
+    public void setAvatarPic(Image image) {
+        imgvAvatar.setImage(image);
     }
 }

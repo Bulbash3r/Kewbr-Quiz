@@ -7,7 +7,6 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-
 <AnchorPane fx:id="rootPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <VBox fx:id="vboxMainButtons" layoutX="258.0" layoutY="135.0" spacing="10.0">
@@ -20,8 +19,8 @@
       </VBox>
       <HBox fx:id="hboxUser" alignment="CENTER" layoutX="503.0" layoutY="14.0" spacing="10.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="14.0">
          <children>
-            <ImageView fx:id="imgvAvatar" fitHeight="45.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true" />
-            <Label fx:id="lblNickname" text="Nickname" />
+            <ImageView fx:id="imgvAvatar" fitHeight="45.0" fitWidth="45.0" pickOnBounds="true" />
+            <Label fx:id="lblNickname" text="User" />
          </children>
       </HBox>
    </children>

@@ -12,10 +12,14 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -68,14 +72,36 @@ public class UserAvatar implements Initializable {
                 }
             }
         });
+
+        imgvAvatar.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                avatarChoose();
+            }
+        });
+
         txtfieldNickname.setText(manager.getMainMenu().getNickname());
+        imgvAvatar.setImage(manager.getMainMenu().getAvatarPic());
+        imgvAvatar.setSmooth(true);
 
         btnOK.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
                 manager.getMainMenu().setNickname(txtfieldNickname.getText());
+                manager.getMainMenu().setAvatarPic(imgvAvatar.getImage());
                 stage.close();
             }
         });
+    }
+
+    private void avatarChoose() {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Choose your avatar picture");
+        fileChooser.getExtensionFilters().addAll(
+                new FileChooser.ExtensionFilter("JPG", "*.jpg"),
+                new FileChooser.ExtensionFilter("PNG", "*.png")
+        );
+        File pic = fileChooser.showOpenDialog(stage);
+        imgvAvatar.setImage(new Image("file:" + pic.getPath()));
     }
 }
