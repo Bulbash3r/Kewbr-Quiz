@@ -15,8 +15,8 @@ import java.io.IOException;
  */
 public class Main extends Application {
 
-    Stage prStage;
-    ControllersManager manager;
+    private Stage prStage;
+    private ControllersManager manager;
 
     @Override
     public void start(Stage prStage) throws Exception {
@@ -36,7 +36,10 @@ public class Main extends Application {
         }
 
         prStage.show();
-        System.out.println("It working!!!");
+    }
+
+    public Stage getPrStage() {
+        return prStage;
     }
 
     /**

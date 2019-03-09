@@ -1,8 +1,10 @@
 package App.Controllers;
 
+import App.Main;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -56,21 +58,35 @@ public class MainMenu implements Initializable {
             }
         });
 
+        btnCreateGame.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                manager.createGame();
+            }
+        });
+
+        btnJoinGame.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                manager.createConnectWindow();
+            }
+        });
+
         /*
         Установка обработчика событий на худ пользователя,
         который инициирует вызов меню выбора аватара и ника
          */
         hboxUser.setOnMouseClicked(new EventHandler<MouseEvent>() {
             /**
-             * @see ControllersManager#createUserAvaterMenu()
+             * @see ControllersManager#createUserAvatarMenu()
              */
             @Override
             public void handle(MouseEvent event) {
-                manager.createUserAvaterMenu();
+                manager.createUserAvatarMenu();
             }
         });
 
-        imgvAvatar.setImage(new Image("file:Images/user.png"));
+        imgvAvatar.setImage(new Image("Images/User.png"));
         imgvAvatar.setSmooth(true);
     }
 

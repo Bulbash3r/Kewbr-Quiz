@@ -51,9 +51,7 @@ public class UserAvatar implements Initializable {
         try {
             FXMLLoader loader = new FXMLLoader(Main.class.getResource("View/UserAvatar.fxml"));
             loader.setController(this);
-            VBox rootPane = loader.load();
-            stage = new Stage();
-            stage.setScene(new Scene(rootPane));
+            stage.setScene(new Scene(loader.load()));
         } catch (IOException ex) {
             ex.printStackTrace();
         }

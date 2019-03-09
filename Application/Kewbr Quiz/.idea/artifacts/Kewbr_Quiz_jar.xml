@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="Kewbr Quiz:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/Kewbr_Quiz_jar</output-path>
+    <root id="archive" name="Kewbr Quiz.jar">
+      <element id="module-output" name="Kewbr Quiz" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/Libs/netty-all-4.1.33.Final.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>
