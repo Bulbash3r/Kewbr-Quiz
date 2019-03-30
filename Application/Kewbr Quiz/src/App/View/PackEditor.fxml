@@ -12,16 +12,24 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="561.0" prefWidth="855.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="App.View.PackEditor">
    <children>
-      <VBox alignment="CENTER_RIGHT" layoutX="31.0" layoutY="147.0" prefHeight="377.0" prefWidth="855.0" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <VBox alignment="CENTER_LEFT" layoutX="31.0" layoutY="147.0" prefHeight="377.0" prefWidth="855.0" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <Button fx:id="btnBack" minHeight="30.0" mnemonicParsing="false" prefWidth="70.0" text="Back">
-               <font>
-                  <Font name="System Bold" size="14.0" />
-               </font>
-            </Button>
+            <HBox alignment="CENTER_RIGHT" spacing="10.0">
+               <children>
+                  <ImageView fx:id="imgvDots" fitHeight="30.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../Images/dots.png" />
+                     </image>
+                  </ImageView>
+                  <Button fx:id="btnBack" minHeight="30.0" mnemonicParsing="false" prefWidth="70.0" text="Back">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Button>
+               </children>
+            </HBox>
             <TableView fx:id="tbvPacks" prefHeight="727.0" prefWidth="835.0">
               <columns>
                 <TableColumn prefWidth="75.0" text="Name" />
@@ -32,7 +40,7 @@
                   <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                </columnResizePolicy>
             </TableView>
-            <HBox alignment="CENTER_LEFT" spacing="10.0">
+            <HBox fx:id="hboxAdd" alignment="CENTER_LEFT" maxWidth="110.0" spacing="10.0">
                <children>
                   <ImageView fitHeight="53.0" fitWidth="107.0" pickOnBounds="true" preserveRatio="true">
                      <image>
