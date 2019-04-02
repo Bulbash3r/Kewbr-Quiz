@@ -11,7 +11,7 @@
 <?import javafx.scene.control.Label?>
 
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.MainController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" scaleShape="false" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.MainController">
    <children>
       <VBox prefHeight="400.0" prefWidth="600.0">
          <children>
@@ -101,7 +101,7 @@
                   <TableColumn prefWidth="66.0" text="Время" />
               </columns>
                <VBox.margin>
-                  <Insets top="10.0" />
+                  <Insets top="1.0" />
                </VBox.margin>
             </TableView>
             <HBox alignment="TOP_CENTER" prefHeight="33.0" prefWidth="600.0">
