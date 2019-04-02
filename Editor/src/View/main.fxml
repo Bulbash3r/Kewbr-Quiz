@@ -60,7 +60,7 @@
                                     <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                                  </HBox.margin>
                               </Label>
-                              <TextField fx:id="packageNameField" disable="true" prefHeight="25.0" prefWidth="243.0">
+                              <TextField fx:id="packageNameField" disable="true" prefHeight="25.0" prefWidth="243.0" promptText="Введите название">
                                  <HBox.margin>
                                     <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                                  </HBox.margin>
@@ -92,31 +92,30 @@
                </VBox.margin>
             </HBox>
             <Separator prefWidth="200.0" />
-            <TableView fx:id="questionsTable" disable="true" prefHeight="220.0" prefWidth="600.0">
+            <TableView fx:id="questionsTable" disable="true" prefHeight="220.0" prefWidth="579.0">
               <columns>
-                <TableColumn prefWidth="114.0" text="Тема" />
-                <TableColumn minWidth="0.0" prefWidth="234.0" text="Вопрос" />
-                  <TableColumn prefWidth="104.0" text="Ответ" />
-                  <TableColumn prefWidth="81.0" text="Стоимость" />
-                  <TableColumn prefWidth="66.0" text="Время" />
+                <TableColumn fx:id="questionColumn" minWidth="0.0" prefWidth="289.0" text="Вопрос" />
+                  <TableColumn fx:id="answerColumn" prefWidth="149.0" text="Ответ" />
+                  <TableColumn fx:id="scoreColumn" prefWidth="82.0" text="Стоимость" />
+                  <TableColumn fx:id="timeColumn" prefWidth="79.0" text="Время" />
               </columns>
                <VBox.margin>
-                  <Insets top="1.0" />
+                  <Insets left="1.0" right="1.0" top="1.0" />
                </VBox.margin>
             </TableView>
             <HBox alignment="TOP_CENTER" prefHeight="33.0" prefWidth="600.0">
                <children>
-                  <Button fx:id="addQuestionButton" mnemonicParsing="false" prefHeight="25.0" prefWidth="120.0" text="Добавить">
+                  <Button fx:id="addQuestionButton" mnemonicParsing="false" prefHeight="40.0" prefWidth="120.0" text="Добавить">
                      <HBox.margin>
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                      </HBox.margin>
                   </Button>
-                  <Button fx:id="changeQuestionButton" mnemonicParsing="false" prefHeight="25.0" prefWidth="120.0" text="Изменить">
+                  <Button fx:id="changeQuestionButton" mnemonicParsing="false" prefHeight="40.0" prefWidth="120.0" text="Изменить">
                      <HBox.margin>
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                      </HBox.margin>
                   </Button>
-                  <Button fx:id="deleteQuestionButton" mnemonicParsing="false" prefHeight="25.0" prefWidth="120.0" text="Удалить">
+                  <Button fx:id="deleteQuestionButton" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" prefHeight="25.0" prefWidth="120.0" text="Удалить">
                      <HBox.margin>
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                      </HBox.margin>

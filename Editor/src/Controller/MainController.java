@@ -1,12 +1,11 @@
 package Controller;
 
+import Model.Question;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
@@ -30,7 +29,19 @@ public class MainController {
     private Button savePackageButton;
 
     @FXML
-    private TableView<?> questionsTable;
+    private TableColumn<Question, Integer> scoreColumn;
+
+    @FXML
+    private TableColumn<Question, Integer> timeColumn;
+
+    @FXML
+    private TableColumn<Question, String> answerColumn;
+
+    @FXML
+    private TableColumn<Question, String> questionColumn;
+
+    @FXML
+    private TableView<Question> questionsTable;
 
     @FXML
     private Button createPackageButton;
@@ -41,12 +52,21 @@ public class MainController {
     @FXML
     private TextField packageNameField;
 
-    private ObservableList<?> table = FXCollections.observableArrayList("1 - физ-ра", "2 - лекции Титовой", "3 - лабы по ЦОСиИ", "4 - курсач по СиФО", "5 - зачёт Глеца");
-
-
     @FXML
     void initialize() {
         setDifficultyChoiceBox(getDifficultys());
+        ObservableList<Question> question = FXCollections.observableArrayList(
+                new Question("Lol", "Kek", 100, 15),
+                new Question("Kek", "Cheburek", 100, 15),
+                new Question("dmitry", "savra", 500, 60)
+        );
+
+        questionColumn.setCellValueFactory(new PropertyValueFactory<Question, String>("question"));
+        answerColumn.setCellValueFactory(new PropertyValueFactory<Question, String>("answer"));
+        scoreColumn.setCellValueFactory(new PropertyValueFactory<Question, Integer>("score"));
+        timeColumn.setCellValueFactory(new PropertyValueFactory<Question, Integer>("time"));
+
+        questionsTable.setItems(question);
     }
 
     public ObservableList<String> getDifficultys() {

@@ -8,6 +8,13 @@ public class Package {
     private String date;
     private ArrayList<Question> questions;
 
+    public Package(String packageName, int difficulty, String date, ArrayList<Question> questions) {
+        this.packageName = packageName;
+        this.difficulty = difficulty;
+        this.date = date;
+        this.questions = questions;
+    }
+
     public void setQuestions(ArrayList<Question> questions) {
         this.questions = questions;
     }

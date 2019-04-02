@@ -6,6 +6,13 @@ public class Question {
     private int score;
     private int time;
 
+    public Question(String question, String answer, int score, int time) {
+        this.question = question;
+        this.answer = answer;
+        this.score = score;
+        this.time = time;
+    }
+
     public void setTime(int time) {
         this.time = time;
     }
