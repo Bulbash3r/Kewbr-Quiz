@@ -13,7 +13,7 @@ import javafx.stage.Stage;
 import java.io.File;
 
 public class MainController {
-    
+
     @FXML
     private Button addQuestionButton;
 
@@ -46,11 +46,6 @@ public class MainController {
 
     @FXML
     void initialize() {
-        assert openPackageButton != null : "fx:id=\"openPackageButton\" was not injected: check your FXML file 'main.fxml'.";
-        assert savePackageButton != null : "fx:id=\"savePackageButton\" was not injected: check your FXML file 'main.fxml'.";
-        assert createPackageButton != null : "fx:id=\"createPackageButton\" was not injected: check your FXML file 'main.fxml'.";
-        assert difficultyChoiceBox != null : "fx:id=\"difficultyChoiceBox\" was not injected: check your FXML file 'main.fxml'.";
-        assert packageNameField != null : "fx:id=\"packageNameField\" was not injected: check your FXML file 'main.fxml'.";
         setDifficultyChoiceBox(getDifficultys());
     }
 
