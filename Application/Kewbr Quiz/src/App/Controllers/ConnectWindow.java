@@ -12,12 +12,15 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import javafx.stage.WindowEvent;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+/**
+ * Класс контроллера окна для ввода данных, для подключения к игре
+ * @author NikiTer
+ */
 public class ConnectWindow implements Initializable {
 
     private @FXML Button btnOK;
@@ -33,7 +36,11 @@ public class ConnectWindow implements Initializable {
     private ControllersManager manager;
     private Stage stage;
 
-    public ConnectWindow(ControllersManager manager) {
+    /**
+     * Конструктор
+     * @param manager -- ссылка на центральный контроллер
+     */
+    ConnectWindow(ControllersManager manager) {
         this.manager = manager;
         stage = new Stage();
 
@@ -52,6 +59,7 @@ public class ConnectWindow implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         btnOK.setDisable(true);
 
+        //Установка маски для ввода ip адреса
         txtfieldIP.textProperty().addListener(new ChangeListener<String>() {
             @Override
             public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
@@ -77,6 +85,7 @@ public class ConnectWindow implements Initializable {
             }
         });
 
+        //Установка маски для ввода номера порта
         txtfieldPort.textProperty().addListener(new ChangeListener<String>() {
             @Override
             public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
