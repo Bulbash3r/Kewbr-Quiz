@@ -3,6 +3,7 @@ package Controller;
 import Model.JsonConverter;
 import Model.Package;
 import Model.Question;
+import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
 import javafx.collections.FXCollections;
@@ -14,7 +15,10 @@ import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
 import java.io.*;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 
 public class MainController {
 
@@ -105,11 +109,14 @@ public class MainController {
                 answerColumn.setCellValueFactory(new PropertyValueFactory<Question, String>("answers"));
                 questionsTable.setItems(observableList);
 
-
             } catch (IOException e) {
                 e.printStackTrace();
             }
         }
+    }
+
+    public void createPackageButtonMethod() {
+        setAllEnable();
     }
 
     public void setAllEnable() {
@@ -118,15 +125,40 @@ public class MainController {
         questionsTable.setDisable(false);
     }
 
-    public void createPackageButtonMethod() {
-        setAllEnable();
-    }
-
     public void savePackageButtonMethod() {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd.MM.yy HH:mm");
+        quizPackage.setDate(dateFormat.format(new Date()));
+        quizPackage.setDifficulty(difficultyChoiceBox.getSelectionModel().getSelectedIndex()+1);
+        quizPackage.setPackageName(packageNameField.getText());
+        List<Question> arrayList = questionsTable.getItems();
+
+        ArrayList<String> questions = new ArrayList<String>();
+        ArrayList<String> answers = new ArrayList<String>();
+        for (int i = 0; i < arrayList.size(); i++) {
+            questions.add(arrayList.get(i).getQuestions());
+            answers.add(arrayList.get(i).getAnswers());
+        }
+
+        quizPackage.setQuestions(questions);
+        quizPackage.setAnswers(answers);
+
+        Gson gson = new Gson();
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Сохранить пакет");
-        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Файлы пакетов", ".kwq"));
+        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Файлы пакетов", "*.kwq"));
         File file = fileChooser.showSaveDialog(new Stage());
+
+        if (file != null) {
+
+            try {
+                PrintWriter writer;
+                writer = new PrintWriter(file);
+                writer.print(gson.toJson(quizPackage));
+                writer.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
 }
