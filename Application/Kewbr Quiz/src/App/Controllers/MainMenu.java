@@ -12,6 +12,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
+import javafx.stage.Stage;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -26,12 +27,15 @@ public class MainMenu implements Initializable {
     private @FXML Button btnCreateGame;
     private @FXML Button btnSettings;
     private @FXML Button btnExit;
+    private @FXML Button btnPackEditor;
 
     private @FXML HBox hboxUser;
     private @FXML ImageView imgvAvatar;
     private @FXML Label lblNickname;
 
     private ControllersManager manager;
+
+    private Stage stage = null;
 
     /**
      * Конструктор
@@ -86,6 +90,13 @@ public class MainMenu implements Initializable {
             }
         });
 
+        btnPackEditor.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                manager.createPackEditor();
+            }
+        });
+
         imgvAvatar.setImage(new Image("Images/User.png"));
         imgvAvatar.setSmooth(true);
     }
@@ -120,5 +131,13 @@ public class MainMenu implements Initializable {
      */
     public void setAvatarPic(Image image) {
         imgvAvatar.setImage(image);
+    }
+
+    public Stage getStage() {
+        return stage;
+    }
+
+    public void setStage(Stage stage) {
+        this.stage = stage;
     }
 }
