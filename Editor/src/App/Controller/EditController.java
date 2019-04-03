@@ -50,6 +50,7 @@ public class EditController implements Initializable {
             FXMLLoader loader = new FXMLLoader(Main.class.getResource("View/edit.fxml"));
             loader.setController(this);
             stage.setScene(new Scene(loader.load()));
+            stage.setTitle("Редактор пакетов");
         } catch (IOException e) {
             e.printStackTrace();
         }

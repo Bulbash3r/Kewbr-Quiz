@@ -64,11 +64,11 @@ public class MainController implements Initializable {
 
     private Manager manager;
 
-    public MainController(Manager manager) {
+    MainController(Manager manager) {
         this.manager = manager;
     }
 
-    public ObservableList<String> getDifficultys() {
+    private ObservableList<String> getDifficultys() {
         ObservableList<String> difficultys = FXCollections.observableArrayList("1 - физ-ра", "2 - лекции Титовой", "3 - лабы по ЦОСиИ", "4 - курсач по СиФО", "5 - зачёт Глеца");
         return difficultys;
     }
@@ -190,6 +190,10 @@ public class MainController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         setDifficultyChoiceBox(getDifficultys());
 
+        addQuestionButton.setDisable(true);
+        deleteQuestionButton.setDisable(true);
+        changeQuestionButton.setDisable(true);
+
         //observableList = questionsTable.getItems();
         questionColumn.setCellValueFactory(new PropertyValueFactory<Question, String>("questions"));
         answerColumn.setCellValueFactory(new PropertyValueFactory<Question, String>("answers"));
@@ -220,6 +224,14 @@ public class MainController implements Initializable {
             @Override
             public void handle(ActionEvent event) {
                 savePackageButtonMethod();
+            }
+        });
+
+        deleteQuestionButton.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                Question selectedItem = questionsTable.getSelectionModel().getSelectedItem();
+                questionsTable.getItems().remove(selectedItem);
             }
         });
     }
