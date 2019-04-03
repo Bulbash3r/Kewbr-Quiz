@@ -53,7 +53,7 @@
                         </TextField>
                      </children>
                   </VBox>
-                  <Button mnemonicParsing="false" prefHeight="80.0" prefWidth="137.0" text="ОК">
+                  <Button fx:id="confirmButton" mnemonicParsing="false" prefHeight="80.0" prefWidth="137.0" text="ОК">
                      <font>
                         <Font size="14.0" />
                      </font>

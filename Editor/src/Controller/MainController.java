@@ -8,11 +8,16 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.FileChooser;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.stage.Window;
 
 import java.io.*;
 import java.text.SimpleDateFormat;
@@ -47,6 +52,8 @@ public class MainController {
 
     @FXML
     private TextField packageNameField;
+
+    private EditController editController;
 
     @FXML
     void initialize() {
@@ -164,4 +171,28 @@ public class MainController {
         }
     }
 
+    public void changeQuestion(ActionEvent actionEvent) {
+        Object source = actionEvent.getSource();
+        if (!(source instanceof Button)) {
+            return;
+        }
+
+        Button clickedButton = (Button) source;
+        Question selectedQuestion = (Question) questionsTable.getSelectionModel().getSelectedItem();
+        Window parentWindow = ((Node) actionEvent.getSource()).getScene().getWindow();
+        editController.setQuestion(selectedQuestion);
+        switch (clickedButton.getId()) {
+            case "addQuestionButton":
+
+                break;
+            case "changeQuestionButton":
+                showDialog(parentWindow);
+                break;
+            case "deleteQuestionButton":
+                break;
+        }
+    }
+
+    private void showDialog(Window parentWindow) {
+    }
 }

@@ -102,17 +102,17 @@
             </TableView>
             <HBox alignment="TOP_CENTER" prefHeight="33.0" prefWidth="600.0">
                <children>
-                  <Button fx:id="addQuestionButton" mnemonicParsing="false" prefHeight="40.0" prefWidth="120.0" text="Добавить">
+                  <Button fx:id="addQuestionButton" mnemonicParsing="false" onAction="#changeQuestion" prefHeight="40.0" prefWidth="120.0" text="Добавить">
                      <HBox.margin>
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                      </HBox.margin>
                   </Button>
-                  <Button fx:id="changeQuestionButton" mnemonicParsing="false" prefHeight="40.0" prefWidth="120.0" text="Изменить">
+                  <Button fx:id="changeQuestionButton" mnemonicParsing="false" onAction="#changeQuestion" prefHeight="40.0" prefWidth="120.0" text="Изменить">
                      <HBox.margin>
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                      </HBox.margin>
                   </Button>
-                  <Button fx:id="deleteQuestionButton" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" prefHeight="25.0" prefWidth="120.0" text="Удалить">
+                  <Button fx:id="deleteQuestionButton" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#changeQuestion" prefHeight="25.0" prefWidth="120.0" text="Удалить">
                      <HBox.margin>
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                      </HBox.margin>
