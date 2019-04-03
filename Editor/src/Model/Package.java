@@ -9,7 +9,7 @@ public class Package {
     private ArrayList<String> answers;
     private String date;
 
-    public Package(String packageName, int difficulty, ArrayList<String> questions, ArrayList<String> answers, String date) {
+    private Package(String packageName, int difficulty, ArrayList<String> questions, ArrayList<String> answers, String date) {
         this.packageName = packageName;
         this.difficulty = difficulty;
         this.questions = questions;
