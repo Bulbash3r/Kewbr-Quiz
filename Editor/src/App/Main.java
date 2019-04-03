@@ -1,4 +1,6 @@
-import Controller.MainController;
+package App;
+
+import App.Controller.Manager;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -7,11 +9,15 @@ import javafx.stage.Stage;
 
 public class Main extends Application {
 
+    private Manager manager;
+
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("View/main.fxml"));
+        manager = new Manager(this);
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("View/main.fxml"));
+        loader.setController(manager.getMainController());
         primaryStage.setTitle("Kewbr Quiz Editor");
-        primaryStage.setScene(new Scene(root, 600, 400));
+        primaryStage.setScene(new Scene(loader.load(), 600, 400));
         primaryStage.show();
         primaryStage.setResizable(false);
     }

@@ -1,6 +1,4 @@
-package Model;
-
-import java.util.ArrayList;
+package App.Model;
 
 public class Question {
     private String questions;

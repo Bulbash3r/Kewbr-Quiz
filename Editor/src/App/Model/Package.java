@@ -1,15 +1,16 @@
-package Model;
+package App.Model;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 public class Package {
     private String packageName;
     private int difficulty;
     private ArrayList<String> questions;
     private ArrayList<String> answers;
-    private String date;
+    private Date date;
 
-    Package(String packageName, int difficulty, ArrayList<String> questions, ArrayList<String> answers, String date) {
+    Package(String packageName, int difficulty, ArrayList<String> questions, ArrayList<String> answers, Date date) {
         this.packageName = packageName;
         this.difficulty = difficulty;
         this.questions = questions;
@@ -49,11 +50,11 @@ public class Package {
         this.answers = answers;
     }
 
-    public String getDate() {
+    public Date getDate() {
         return date;
     }
 
-    public void setDate(String date) {
+    public void setDate(Date date) {
         this.date = date;
     }
 }

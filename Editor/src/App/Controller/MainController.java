@@ -1,33 +1,42 @@
-package Controller;
+package App.Controller;
 
-import Model.JsonConverter;
-import Model.Package;
-import Model.Question;
+import App.Model.JsonConverter;
+import App.Model.Package;
+import App.Model.Question;
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.scene.Node;
-import javafx.scene.Scene;
+import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.FileChooser;
-import javafx.stage.Modality;
 import javafx.stage.Stage;
-import javafx.stage.Window;
 
 import java.io.*;
-import java.text.SimpleDateFormat;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.ResourceBundle;
 
-public class MainController {
+public class MainController implements Initializable {
 
     private Package quizPackage;
+
+    @FXML
+    private Button openPackageButton;
+
+    @FXML
+    private Button savePackageButton;
+
+    @FXML
+    private Button createPackageButton;
 
     @FXML
     private Button addQuestionButton;
@@ -53,11 +62,10 @@ public class MainController {
     @FXML
     private TextField packageNameField;
 
-    private EditController editController;
+    private Manager manager;
 
-    @FXML
-    void initialize() {
-        setDifficultyChoiceBox(getDifficultys());
+    public MainController(Manager manager) {
+        this.manager = manager;
     }
 
     public ObservableList<String> getDifficultys() {
@@ -65,11 +73,11 @@ public class MainController {
         return difficultys;
     }
 
-    public void setDifficultyChoiceBox(ObservableList<String> list) {
+    private void setDifficultyChoiceBox(ObservableList<String> list) {
         difficultyChoiceBox.setItems (list);
     }
 
-    public void openPackageButtonMethod() {
+    private void openPackageButtonMethod() {
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Открыть файл пакета");
         fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Файлы пакетов", "*.kwq"));
@@ -101,11 +109,8 @@ public class MainController {
                 for (int i = 0; i < quizPackage.getQuestions().size(); i++) {
                     question.add(new Question(quizPackage.getQuestions().get(i), quizPackage.getAnswers().get(i)));
                 }
-
-                ObservableList<Question> observableList = FXCollections.observableArrayList(question);
-                questionColumn.setCellValueFactory(new PropertyValueFactory<Question, String>("questions"));
-                answerColumn.setCellValueFactory(new PropertyValueFactory<Question, String>("answers"));
-                questionsTable.setItems(observableList);
+                questionsTable.getItems().clear();
+                questionsTable.setItems(FXCollections.observableArrayList(question));
 
             } catch (IOException e) {
                 e.printStackTrace();
@@ -119,24 +124,29 @@ public class MainController {
         questionsTable.setItems(FXCollections.observableArrayList());
     }
 
-    public void setAllEnable() {
+    private void setAllEnable() {
         packageNameField.setDisable(false);
         difficultyChoiceBox.setDisable(false);
         questionsTable.setDisable(false);
+        addQuestionButton.setDisable(false);
+        deleteQuestionButton.setDisable(false);
+        changeQuestionButton.setDisable(false);
     }
 
-    public void setAllDisable() {
+    private void setAllDisable() {
         packageNameField.setText("");
         difficultyChoiceBox.getSelectionModel().select(0);
         packageNameField.setDisable(true);
         difficultyChoiceBox.setDisable(true);
         questionsTable.setDisable(true);
+        addQuestionButton.setDisable(true);
+        deleteQuestionButton.setDisable(true);
+        changeQuestionButton.setDisable(true);
         questionsTable.setItems(FXCollections.observableArrayList());
     }
 
-    public void savePackageButtonMethod() {
-        SimpleDateFormat dateFormat = new SimpleDateFormat("dd.MM.yy HH:mm");
-        quizPackage.setDate(dateFormat.format(new Date()));
+    private void savePackageButtonMethod() {
+        quizPackage.setDate(new Date());
         quizPackage.setDifficulty(difficultyChoiceBox.getSelectionModel().getSelectedIndex()+1);
         quizPackage.setPackageName(packageNameField.getText());
         List<Question> arrayList = questionsTable.getItems();
@@ -162,7 +172,7 @@ public class MainController {
             try {
                 PrintWriter writer;
                 writer = new PrintWriter(file);
-                writer.print(gson.toJson(quizPackage));
+                writer.print(gson.toJson(quizPackage).replace("9,","9"));
                 writer.close();
             } catch (IOException e) {
                 e.printStackTrace();
@@ -171,28 +181,46 @@ public class MainController {
         }
     }
 
-    public void changeQuestion(ActionEvent actionEvent) {
-        Object source = actionEvent.getSource();
-        if (!(source instanceof Button)) {
-            return;
-        }
-
-        Button clickedButton = (Button) source;
-        Question selectedQuestion = (Question) questionsTable.getSelectionModel().getSelectedItem();
-        Window parentWindow = ((Node) actionEvent.getSource()).getScene().getWindow();
-        editController.setQuestion(selectedQuestion);
-        switch (clickedButton.getId()) {
-            case "addQuestionButton":
-
-                break;
-            case "changeQuestionButton":
-                showDialog(parentWindow);
-                break;
-            case "deleteQuestionButton":
-                break;
-        }
+    public void addQuestion(String question, String answer) {
+        Question question1 = new Question(question, answer);
+        questionsTable.getItems().add(question1);
     }
 
-    private void showDialog(Window parentWindow) {
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        setDifficultyChoiceBox(getDifficultys());
+
+        //observableList = questionsTable.getItems();
+        questionColumn.setCellValueFactory(new PropertyValueFactory<Question, String>("questions"));
+        answerColumn.setCellValueFactory(new PropertyValueFactory<Question, String>("answers"));
+        //questionsTable.setItems (observableList);
+
+        addQuestionButton.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                manager.createEditWindow();
+            }
+        });
+
+        createPackageButton.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                createPackageButtonMethod();
+            }
+        });
+
+        openPackageButton.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                openPackageButtonMethod();
+            }
+        });
+
+        savePackageButton.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                savePackageButtonMethod();
+            }
+        });
     }
 }

@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.*?>
 
 
-<AnchorPane prefHeight="269.0" prefWidth="407.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.EditController">
+<AnchorPane prefHeight="269.0" prefWidth="407.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <VBox prefHeight="269.0" prefWidth="407.0">
          <children>
