@@ -34,12 +34,6 @@ public class MainController {
     private Button changeQuestionButton;
 
     @FXML
-    private Button openPackageButton;
-
-    @FXML
-    private Button savePackageButton;
-
-    @FXML
     private TableColumn<Question, String> answerColumn;
 
     @FXML
@@ -47,9 +41,6 @@ public class MainController {
 
     @FXML
     private TableView<Question> questionsTable;
-
-    @FXML
-    private Button createPackageButton;
 
     @FXML
     private ChoiceBox<String> difficultyChoiceBox;
@@ -117,12 +108,23 @@ public class MainController {
 
     public void createPackageButtonMethod() {
         setAllEnable();
+        difficultyChoiceBox.getSelectionModel().select(0);
+        questionsTable.setItems(FXCollections.observableArrayList());
     }
 
     public void setAllEnable() {
         packageNameField.setDisable(false);
         difficultyChoiceBox.setDisable(false);
         questionsTable.setDisable(false);
+    }
+
+    public void setAllDisable() {
+        packageNameField.setText("");
+        difficultyChoiceBox.getSelectionModel().select(0);
+        packageNameField.setDisable(true);
+        difficultyChoiceBox.setDisable(true);
+        questionsTable.setDisable(true);
+        questionsTable.setItems(FXCollections.observableArrayList());
     }
 
     public void savePackageButtonMethod() {
@@ -158,6 +160,7 @@ public class MainController {
             } catch (IOException e) {
                 e.printStackTrace();
             }
+            setAllDisable();
         }
     }
 
