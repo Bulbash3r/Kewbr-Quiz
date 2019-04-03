@@ -17,6 +17,10 @@ import java.net.URL;
 import java.net.UnknownHostException;
 import java.util.ResourceBundle;
 
+/**
+ * Класс контроллера игровой сцены
+ * @author NikiTer
+ */
 public class GameScene implements Initializable {
 
     private @FXML Button btnSend;
@@ -38,6 +42,12 @@ public class GameScene implements Initializable {
 
     private String nickname;
 
+    /**
+     * Конструктор для хоста
+     * @param nickname -- никнейм игрока
+     * @param manager -- ссылка на центральный контроллер
+     * @see Server#run()
+     */
     GameScene(String nickname, ControllersManager manager) {
         this.nickname = nickname;
         this.manager = manager;
@@ -46,6 +56,14 @@ public class GameScene implements Initializable {
         server.run();
     }
 
+    /**
+     * Конструктор для клиента
+     * @param nickname -- никнейм игрока
+     * @param host -- ip адрес хоста
+     * @param port -- номер порта хоста
+     * @param manager -- ссылка на центральный контроллер
+     * @see Client#run()
+     */
     GameScene(String nickname, String host, int port, ControllersManager manager) {
         this.nickname = nickname;
         this.manager = manager;
@@ -58,6 +76,7 @@ public class GameScene implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         lblNickname.setText(nickname);
 
+        //Если это сервер, выставляем отображение ip адреса и номера порта
         if (isServer) {
             try {
                 lblIP.setText(InetAddress.getLocalHost().toString().split("/")[1]);
@@ -68,7 +87,15 @@ public class GameScene implements Initializable {
             }
         }
 
+        /*
+         * Установка события, которе инициирует отправку сообщения
+         * при нажатии на Enter
+         */
         txtfieldInput.setOnKeyReleased(new EventHandler<KeyEvent>() {
+            /**
+             * @see Server#write(String)
+             * @see Client#write(String)
+             */
             @Override
             public void handle(KeyEvent event) {
                 if (event.getCode() != KeyCode.ENTER)
@@ -83,7 +110,15 @@ public class GameScene implements Initializable {
             }
         });
 
+        /*
+         * Установка события, которе инициирует отправку сообщения
+         * при нажатии на кнопку "Send"
+         */
         btnSend.setOnAction(new EventHandler<ActionEvent>() {
+            /**
+             * @see Server#write(String)
+             * @see Client#write(String)
+             */
             @Override
             public void handle(ActionEvent event) {
                 if (!txtfieldInput.getText().isEmpty() && txtfieldInput.getText().length() <= 20) {
@@ -96,7 +131,13 @@ public class GameScene implements Initializable {
             }
         });
 
+        //Выход из игры в главное меню
         btnExit.setOnAction(new EventHandler<ActionEvent>() {
+            /**
+             * @see Server#shutdown()
+             * @see Client#shutdown()
+             * @see ControllersManager#backToMenu()
+             */
             @Override
             public void handle(ActionEvent event) {
                 if (isServer)
@@ -108,11 +149,19 @@ public class GameScene implements Initializable {
         });
     }
 
+    /**
+     * Метод для печати сообщения на экране
+     * @param message -- сообщение, которое нужно напечатать
+     */
     public void print(String message) {
         vboxChat.getChildren().add(new Label(message));
         scrollPane.setVvalue(1.0);
     }
 
+    /**
+     * Метод, возвращающий никнейм игрока
+     * @return -- никнейм игрока
+     */
     public String getNickname() {
         return lblNickname.getText();
     }
