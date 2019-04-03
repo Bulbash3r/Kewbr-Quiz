@@ -1,6 +1,5 @@
 package Controller;
 
-import Model.Question;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -29,19 +28,13 @@ public class MainController {
     private Button savePackageButton;
 
     @FXML
-    private TableColumn<Question, Integer> scoreColumn;
+    private TableColumn<Package, String> answerColumn;
 
     @FXML
-    private TableColumn<Question, Integer> timeColumn;
+    private TableColumn<Package, String> questionColumn;
 
     @FXML
-    private TableColumn<Question, String> answerColumn;
-
-    @FXML
-    private TableColumn<Question, String> questionColumn;
-
-    @FXML
-    private TableView<Question> questionsTable;
+    private TableView<Package> questionsTable;
 
     @FXML
     private Button createPackageButton;
@@ -55,16 +48,10 @@ public class MainController {
     @FXML
     void initialize() {
         setDifficultyChoiceBox(getDifficultys());
-        ObservableList<Question> question = FXCollections.observableArrayList(
-                new Question("Lol", "Kek", 100, 15),
-                new Question("Kek", "Cheburek", 100, 15),
-                new Question("dmitry", "savra", 500, 60)
-        );
+        ObservableList<Package> question = FXCollections.observableArrayList();
 
-        questionColumn.setCellValueFactory(new PropertyValueFactory<Question, String>("question"));
-        answerColumn.setCellValueFactory(new PropertyValueFactory<Question, String>("answer"));
-        scoreColumn.setCellValueFactory(new PropertyValueFactory<Question, Integer>("score"));
-        timeColumn.setCellValueFactory(new PropertyValueFactory<Question, Integer>("time"));
+        questionColumn.setCellValueFactory(new PropertyValueFactory<Package, String>("questions"));
+        answerColumn.setCellValueFactory(new PropertyValueFactory<Package, String>("answers"));
 
         questionsTable.setItems(question);
     }
