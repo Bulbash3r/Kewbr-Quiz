@@ -262,7 +262,6 @@ public class PackEditor implements Initializable {
                     scanner = new Scanner(file);
                     tbvPacks.getItems().add(GSON.fromJson(scanner.nextLine(), Pack.class));
                     scanner.close();
-                    tbvPacks.getItems().add(GSON.fromJson(new Scanner(file).nextLine(), Pack.class));
                 }
             }
         } catch (FileNotFoundException ex) {
@@ -328,6 +327,7 @@ public class PackEditor implements Initializable {
         } catch (IOException ex) {
             ex.printStackTrace();
         }
+        curPack = null;
     }
 
     public void insertQuestion(Question question, int index) {
