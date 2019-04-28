@@ -33,10 +33,10 @@
                                  </image>
                               </ImageView>
                               <Label fx:id="lblNickname" text="Nickname" />
-                              <Button fx:id="btnExit" mnemonicParsing="false" prefWidth="70.0" text="Exit" />
+                              <Button fx:id="btnExitClient" mnemonicParsing="false" prefWidth="70.0" text="Exit" />
                            </children>
                         </HBox>
-                        <Label fx:id="lblTimer" layoutX="257.0" layoutY="38.0" text="Timer" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="70.0" AnchorPane.topAnchor="0.0" />
+                        <Label fx:id="lblTimerClient" layoutX="257.0" layoutY="38.0" text="Timer" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="70.0" AnchorPane.topAnchor="0.0" />
                      </children>
                   </AnchorPane>
                </top>
@@ -45,10 +45,10 @@
                      <children>
                         <ScrollPane prefHeight="327.0">
                            <content>
-                              <VBox fx:id="vboxChat" prefWidth="153.0" />
+                              <VBox fx:id="vboxChatClient" prefWidth="153.0" />
                            </content>
                         </ScrollPane>
-                        <TextField fx:id="txtFieldChat" promptText="Write your message" />
+                        <TextField fx:id="txtFieldChatClient" promptText="Write your message" />
                      </children>
                   </VBox>
                </right>
@@ -87,7 +87,7 @@
                      <children>
                         <ScrollPane prefHeight="120.0">
                            <content>
-                              <VBox fx:id="vboxQuestions" alignment="TOP_CENTER" maxWidth="434.0" prefWidth="434.0" />
+                              <VBox fx:id="vboxQuestionsClient" alignment="TOP_CENTER" maxWidth="434.0" prefWidth="434.0" />
                            </content>
                         </ScrollPane>
                      </children>
@@ -100,10 +100,10 @@
                      <children>
                         <ScrollPane prefHeight="327.0">
                            <content>
-                              <VBox fx:id="vboxChat" maxWidth="147.0" prefWidth="147.0" />
+                              <VBox fx:id="vboxChatHost" maxWidth="147.0" prefWidth="147.0" />
                            </content>
                         </ScrollPane>
-                        <TextField fx:id="txtFieldChat" promptText="Write your message" />
+                        <TextField fx:id="txtFieldChatHost" promptText="Write your message" />
                      </children>
                   </VBox>
                </right>
@@ -116,7 +116,7 @@
                                  <children>
                                     <ScrollPane prefHeight="120.0" prefWidth="300.0">
                                        <content>
-                                          <VBox fx:id="vboxQuestions" alignment="TOP_CENTER" maxWidth="298.0" prefWidth="298.0" />
+                                          <VBox fx:id="vboxQuestionsHost" alignment="TOP_CENTER" maxWidth="298.0" prefWidth="298.0" />
                                        </content>
                                     </ScrollPane>
                                     <HBox spacing="10.0">
@@ -127,10 +127,10 @@
                                     </HBox>
                                  </children>
                               </VBox>
-                              <Button fx:id="btnExit" mnemonicParsing="false" prefWidth="70.0" text="Exit" />
+                              <Button fx:id="btnExitHost" mnemonicParsing="false" prefWidth="70.0" text="Exit" />
                            </children>
                         </HBox>
-                        <Label fx:id="lblTimer" layoutX="562.0" layoutY="60.0" text="Timer" AnchorPane.bottomAnchor="60.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="60.0" />
+                        <Label fx:id="lblTimerHost" layoutX="562.0" layoutY="60.0" text="Timer" AnchorPane.bottomAnchor="60.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="60.0" />
                      </children>
                   </AnchorPane>
                </top>
