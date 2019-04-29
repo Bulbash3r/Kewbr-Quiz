@@ -1,6 +1,6 @@
 ﻿# Технический долг. Устранение долга
 ### Что такое технический долг?
-[![Всё ОК!](https://pp.userapi.com/c846017/v846017122/1f51ea/yFIVLjh3_JI.jpg "Без паники!")](https://pp.userapi.com/c846017/v846017122/1f51ea/yFIVLjh3_JI.jpg "Без паники!")
+[![Всё ОК!](https://pp.userapi.com/c846017/v846017122/1f51ea/yFIVLjh3_JI.jpg "Без паники!")](https://pp.userapi.com/c846017/v846017122/1f51ea/yFIVLjh3_JI.jpg "Без паники!")  
 Не весь корявый написанный код по определению является техническим долгом. Конечно, если есть такой код, то его лучше рано или поздно переписать, но наша команда понимает, что код можно шлифовать и полировать до бесконечности, ведь совершенству нет предела. Для того, чтобы бороться с техническим долгом стоит разобраться, что же это такое. Отличное описание технического долга описал Мартин Фаулер, известный зарубежный автор ряда книг о рефакторинге и языку UML, в [своём блоге](https://martinfowler.com/bliki/TechnicalDebt.html "своём блоге").
 > Like a financial debt, the technical debt incurs interest payments, which come in the form of the extra effort that we have to do in future development because of the quick and dirty design choice.
 
