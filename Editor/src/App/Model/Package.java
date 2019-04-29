@@ -10,6 +10,8 @@ public class Package {
     private ArrayList<String> answers;
     private Date date;
 
+    public Package() {}
+
     Package(String packageName, int difficulty, ArrayList<String> questions, ArrayList<String> answers, Date date) {
         this.packageName = packageName;
         this.difficulty = difficulty;

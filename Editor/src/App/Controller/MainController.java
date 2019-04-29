@@ -118,10 +118,11 @@ public class MainController implements Initializable {
         }
     }
 
-    public void createPackageButtonMethod() {
+    private void createPackageButtonMethod() {
         setAllEnable();
         difficultyChoiceBox.getSelectionModel().select(0);
         questionsTable.setItems(FXCollections.observableArrayList());
+        quizPackage = new Package();
     }
 
     private void setAllEnable() {
@@ -190,6 +191,7 @@ public class MainController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         setDifficultyChoiceBox(getDifficultys());
 
+        changeQuestionButton.setVisible(false);
         addQuestionButton.setDisable(true);
         deleteQuestionButton.setDisable(true);
         changeQuestionButton.setDisable(true);
