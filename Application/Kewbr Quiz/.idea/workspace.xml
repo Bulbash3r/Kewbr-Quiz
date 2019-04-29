@@ -4,10 +4,7 @@
     <bookmark url="file://$PROJECT_DIR$/src/App/Controllers/UserAvatar.java" line="52" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="654382a0-03a4-4674-8f4d-ddf0b506a518" name="Default Changelist" comment="Editor refactoring and integration to main app (done)">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Kewbr Quiz.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Kewbr Quiz.iml" afterDir="false" />
-    </list>
+    <list default="true" id="654382a0-03a4-4674-8f4d-ddf0b506a518" name="Default Changelist" comment="Editor refactoring and integration to main app (done)" />
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -218,7 +215,7 @@
   <component name="NodePackageJsonFileManager">
     <packageJsonPaths />
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
     <option name="width" value="1382" />
@@ -241,6 +238,11 @@
             <path>
               <item name="Kewbr Quiz" type="b2602c69:ProjectViewProjectNode" />
               <item name="Kewbr Quiz" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Kewbr Quiz" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Kewbr Quiz" type="462c0819:PsiDirectoryNode" />
+              <item name="Libs" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Kewbr Quiz" type="b2602c69:ProjectViewProjectNode" />
@@ -386,7 +388,7 @@
       <workItem from="1555798355524" duration="147000" />
       <workItem from="1556359383045" duration="1202000" />
       <workItem from="1556440687359" duration="9020000" />
-      <workItem from="1556564370620" duration="2001000" />
+      <workItem from="1556564370620" duration="2780000" />
     </task>
     <task id="LOCAL-00001" summary="Editor refactoring and integration to main app (not done)">
       <created>1554478080290</created>
@@ -420,11 +422,10 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="97312000" />
+    <option name="totallyTimeSpent" value="98091000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -440,8 +441,8 @@
       <window_info anchor="bottom" id="Terminal" order="8" weight="0.32936078" />
       <window_info id="Capture Tool" order="5" />
       <window_info id="Designer" order="3" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.19635417" />
-      <window_info active="true" anchor="bottom" id="Inspection Results" visible="true" weight="0.32946146" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19635417" />
+      <window_info anchor="bottom" id="Inspection Results" visible="true" weight="0.32946146" />
       <window_info anchor="right" id="Database" order="7" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32936078" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
