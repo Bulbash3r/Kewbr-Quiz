@@ -10,8 +10,10 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 
+import javax.swing.text.html.ImageView;
 import java.net.InetAddress;
 import java.net.URL;
 import java.net.UnknownHostException;
@@ -23,16 +25,53 @@ import java.util.ResourceBundle;
  */
 public class GameScene implements Initializable {
 
-    private @FXML Button btnSend;
-    private @FXML Button btnExit;
-    private @FXML Label lblNickname;
-    private @FXML Label lblUsers;
-    private @FXML ScrollPane scrollPane;
-    private @FXML VBox vboxChat;
-    private @FXML TextField txtfieldInput;
-    private @FXML VBox vboxServerInfo;
-    private @FXML Label lblIP;
-    private @FXML Label lblPort;
+    private @FXML
+    BorderPane btdPaneClient;
+    private @FXML
+    BorderPane btdPaneHost;
+
+    private @FXML
+    Button btnExitClient;
+    private @FXML
+    Button btnExitHost;
+    private @FXML
+    Button btnConfirm;
+    private @FXML
+    Button btnStart;
+    private @FXML
+    Button btnStop;
+
+    private @FXML
+    ImageView imgvAvatar;
+    private @FXML
+    ImageView imgvResult;
+
+    private @FXML
+    Label lblNickname;
+    private @FXML
+    Label lblTimerClient;
+    private @FXML
+    Label lblTimerHost;
+    private @FXML
+    Label lblIP;
+    private @FXML
+    Label lblPort;
+
+    private @FXML
+    VBox vboxChatClient;
+    private @FXML
+    VBox vboxChatHost;
+
+    private @FXML
+    TextField txtFieldChatClient;
+    private @FXML
+    TextField txtFieldChatHost;
+
+    private @FXML
+    ScrollPane scrollPaneChatHost;
+    private @FXML
+    ScrollPane scrollPaneChatClient;
+
 
     private ControllersManager manager;
 
@@ -81,7 +120,6 @@ public class GameScene implements Initializable {
             try {
                 lblIP.setText(InetAddress.getLocalHost().toString().split("/")[1]);
                 lblPort.setText("8000");
-                vboxServerInfo.setVisible(true);
             } catch (UnknownHostException e) {
                 e.printStackTrace();
             }
@@ -91,62 +129,66 @@ public class GameScene implements Initializable {
          * Установка события, которе инициирует отправку сообщения
          * при нажатии на Enter
          */
-        txtfieldInput.setOnKeyReleased(new EventHandler<KeyEvent>() {
-            /**
-             * @see Server#write(String)
-             * @see Client#write(String)
-             */
-            @Override
-            public void handle(KeyEvent event) {
-                if (event.getCode() != KeyCode.ENTER)
-                    return;
-                if (!txtfieldInput.getText().isEmpty() && txtfieldInput.getText().length() <= 20) {
-                    if (isServer)
-                        server.write(txtfieldInput.getText());
-                    else
-                        client.write(txtfieldInput.getText());
-                    txtfieldInput.clear();
+        if (isServer) {
+            txtFieldChatHost.setOnKeyReleased(new EventHandler<KeyEvent>() {
+                /**
+                 * @see Server#write(String)
+                 * @see Client#write(String)
+                 */
+                @Override
+                public void handle(KeyEvent event) {
+                    if (event.getCode() != KeyCode.ENTER)
+                        return;
+                    if (!txtFieldChatHost.getText().isEmpty() && txtFieldChatHost.getText().length() <= 20) {
+                        server.write(txtFieldChatHost.getText());
+                        txtFieldChatHost.clear();
+                    }
                 }
-            }
-        });
-
-        /*
-         * Установка события, которе инициирует отправку сообщения
-         * при нажатии на кнопку "Send"
-         */
-        btnSend.setOnAction(new EventHandler<ActionEvent>() {
-            /**
-             * @see Server#write(String)
-             * @see Client#write(String)
-             */
-            @Override
-            public void handle(ActionEvent event) {
-                if (!txtfieldInput.getText().isEmpty() && txtfieldInput.getText().length() <= 20) {
-                    if (isServer)
-                        server.write(txtfieldInput.getText());
-                    else
-                        client.write(txtfieldInput.getText());
-                    txtfieldInput.clear();
+            });
+        } else {
+            txtFieldChatClient.setOnKeyReleased(new EventHandler<KeyEvent>() {
+                /**
+                 * @see Server#write(String)
+                 * @see Client#write(String)
+                 */
+                @Override
+                public void handle(KeyEvent event) {
+                    if (event.getCode() != KeyCode.ENTER)
+                        return;
+                    if (!txtFieldChatClient.getText().isEmpty() && txtFieldChatClient.getText().length() <= 20) {
+                        client.write(txtFieldChatClient.getText());
+                        txtFieldChatClient.clear();
+                    }
                 }
-            }
-        });
+            });
+        }
 
         //Выход из игры в главное меню
-        btnExit.setOnAction(new EventHandler<ActionEvent>() {
-            /**
-             * @see Server#shutdown()
-             * @see Client#shutdown()
-             * @see ControllersManager#backToMenu()
-             */
-            @Override
-            public void handle(ActionEvent event) {
-                if (isServer)
+        if (isServer) {
+            btnExitHost.setOnAction(new EventHandler<ActionEvent>() {
+                /**
+                 * @see Server#shutdown()
+                 * @see ControllersManager#backToMenu()
+                 */
+                @Override
+                public void handle(ActionEvent event) {
                     server.shutdown();
-                else
+                    manager.backToMenu();
+                }
+            });
+        } else {
+            btnExitClient.setOnAction(new EventHandler<ActionEvent>() {
+                /**
+                 * @see Client#shutdown()
+                 * @see ControllersManager#backToMenu()
+                 */
+                @Override
+                public void handle(ActionEvent event) {
                     client.shutdown();
-                manager.backToMenu();
-            }
-        });
+                    manager.backToMenu();
+                }
+            });
+        }
     }
 
     /**
@@ -154,8 +196,13 @@ public class GameScene implements Initializable {
      * @param message -- сообщение, которое нужно напечатать
      */
     public void print(String message) {
-        vboxChat.getChildren().add(new Label(message));
-        scrollPane.setVvalue(1.0);
+        if (isServer) {
+            vboxChatHost.getChildren().add(new Label(message));
+            scrollPaneChatHost.setVvalue(0.0);
+        } else {
+            vboxChatClient.getChildren().add(new Label(message));
+            scrollPaneChatClient.setVvalue(0.0);
+        }
     }
 
     /**
