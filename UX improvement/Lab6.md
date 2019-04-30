@@ -1,4 +1,4 @@
-## Улучшение UX
+### Улучшение UX
 Мы оценили наше ПО по следующим атрибутам качества:
  - Распознаваемость соответствия
  - Обучаемость
@@ -7,9 +7,9 @@
  - Эстетика GUI
  - Доступность
 
-1. **Распознаваемость соответствия**.
+1. **Распознаваемость соответствия**. Данное приложение является простым и понятным для пользователя. Использование функционала проекта не доставляет неудобства пользователю. Побочные функции, которые не несут полезной нагрузки для приложения, отсутствуют.
 
-2. **Обучаемость**. Наше приложение максимально простое в использовании, и для начала работы с ним не требуется ознакомления с технической документаций. 
+2. **Обучаемость**. Наше приложение максимально простое в использовании, и для начала работы с ним не требуется ознакомления с технической документаций.
 
 3. **Используемость**. 
 
@@ -19,18 +19,28 @@
 
 6. **Доступность**. Приложение устроено таким образом, что его использование не вызывает трудностей у любого пользователя.
 
+### Пути улучшения UX, обоснование необходимости
+
 Для улучшения внешнего вида приложения мы выбрали следующие пути:
  - Использование «заполнителей» текста
  - Использование таблицы стилей
 
 Внешний вид приложения до улучшения: 
-[![](https://github.com/Bulbash3r/Kewbr-Quiz/edit/master/UX%20improvement/MainMenu.jpg)](https://github.com/Bulbash3r/Kewbr-Quiz/edit/master/UX%20improvement/MainMenu.jpg)
-[![](https://github.com/Bulbash3r/Kewbr-Quiz/edit/master/UX%20improvement/Editor.jpg)](https://github.com/Bulbash3r/Kewbr-Quiz/edit/master/UX%20improvement/Editor.jpg)
-[![](https://github.com/Bulbash3r/Kewbr-Quiz/edit/master/UX%20improvement/QuestEditor.jpg)](https://github.com/Bulbash3r/Kewbr-Quiz/edit/master/UX%20improvement/QuestEditor.jpg)
-[![](https://github.com/Bulbash3r/Kewbr-Quiz/edit/master/UX%20improvement/InGame.jpg)](https://github.com/Bulbash3r/Kewbr-Quiz/edit/master/UX%20improvement/InGame.jpg)
+
+[![](https://github.com/Bulbash3r/Kewbr-Quiz/blob/master/UX%20improvement/MainMenu.jpg?raw=true)](https://github.com/Bulbash3r/Kewbr-Quiz/blob/master/UX%20improvement/MainMenu.jpg?raw=true)
+
+[![](https://github.com/Bulbash3r/Kewbr-Quiz/blob/master/UX%20improvement/Editor.jpg?raw=true)](https://github.com/Bulbash3r/Kewbr-Quiz/blob/master/UX%20improvement/Editor.jpg?raw=true)
+
+[![](https://github.com/Bulbash3r/Kewbr-Quiz/blob/master/UX%20improvement/QuestEditor.jpg?raw=true)](https://github.com/Bulbash3r/Kewbr-Quiz/blob/master/UX%20improvement/QuestEditor.jpg?raw=true)
+
+[![](https://github.com/Bulbash3r/Kewbr-Quiz/blob/master/UX%20improvement/InGame.jpg?raw=true)](https://github.com/Bulbash3r/Kewbr-Quiz/blob/master/UX%20improvement/InGame.jpg?raw=true)
 
 Внешний вид приложения после улучшения: 
-[![](https://github.com/Bulbash3r/Kewbr-Quiz/edit/master/UX%20improvement/MainMenu%20-%20After.jpg)](https://github.com/Bulbash3r/Kewbr-Quiz/edit/master/UX%20improvement/MainMenu%20-%20After.jpg)
-[![](https://github.com/Bulbash3r/Kewbr-Quiz/edit/master/UX%20improvement/Editor%20-%20After.jpg)](https://github.com/Bulbash3r/Kewbr-Quiz/edit/master/UX%20improvement/Editor%20-%20After.jpg)
-[![](https://github.com/Bulbash3r/Kewbr-Quiz/edit/master/UX%20improvement/QuestEditor%20-%20After.jpg)](https://github.com/Bulbash3r/Kewbr-Quiz/edit/master/UX%20improvement/QuestEditor%20-%20After.jpg)
-[![](https://github.com/Bulbash3r/Kewbr-Quiz/edit/master/UX%20improvement/InGame%20-%20After.jpg)](https://github.com/Bulbash3r/Kewbr-Quiz/edit/master/UX%20improvement/InGame%20-%20After.jpg)
+
+[![](https://github.com/Bulbash3r/Kewbr-Quiz/blob/master/UX%20improvement/MainMenu%20-%20After.jpg?raw=true)](https://github.com/Bulbash3r/Kewbr-Quiz/blob/master/UX%20improvement/MainMenu%20-%20After.jpg?raw=true)
+
+[![](https://github.com/Bulbash3r/Kewbr-Quiz/blob/master/UX%20improvement/Editor%20-%20After.jpg?raw=true)](https://github.com/Bulbash3r/Kewbr-Quiz/blob/master/UX%20improvement/Editor%20-%20After.jpg?raw=true)
+
+[![](https://github.com/Bulbash3r/Kewbr-Quiz/blob/master/UX%20improvement/QuestEditor%20-%20After.jpg?raw=true)](https://github.com/Bulbash3r/Kewbr-Quiz/blob/master/UX%20improvement/QuestEditor%20-%20After.jpg?raw=true)
+
+[![](https://github.com/Bulbash3r/Kewbr-Quiz/blob/master/UX%20improvement/InGame%20-%20After.jpg?raw=true)](https://github.com/Bulbash3r/Kewbr-Quiz/blob/master/UX%20improvement/InGame%20-%20After.jpg?raw=true)
