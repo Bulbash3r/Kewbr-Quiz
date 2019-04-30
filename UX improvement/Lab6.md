@@ -30,7 +30,7 @@
 [![](https://github.com/Bulbash3r/Kewbr-Quiz/edit/master/UX%20improvement/InGame.jpg)](https://github.com/Bulbash3r/Kewbr-Quiz/edit/master/UX%20improvement/InGame.jpg)
 
 Внешний вид приложения после улучшения: 
-[![](UX improvement/MainMenu - After.jpg)](UX improvement/MainMenu - After.jpg)
+[![](https://github.com/Bulbash3r/Kewbr-Quiz/edit/master/UX%20improvement/MainMenu%20-%20After.jpg)](https://github.com/Bulbash3r/Kewbr-Quiz/edit/master/UX%20improvement/MainMenu%20-%20After.jpg)
 [![](https://github.com/Bulbash3r/Kewbr-Quiz/edit/master/UX%20improvement/Editor%20-%20After.jpg)](https://github.com/Bulbash3r/Kewbr-Quiz/edit/master/UX%20improvement/Editor%20-%20After.jpg)
 [![](https://github.com/Bulbash3r/Kewbr-Quiz/edit/master/UX%20improvement/QuestEditor%20-%20After.jpg)](https://github.com/Bulbash3r/Kewbr-Quiz/edit/master/UX%20improvement/QuestEditor%20-%20After.jpg)
 [![](https://github.com/Bulbash3r/Kewbr-Quiz/edit/master/UX%20improvement/InGame%20-%20After.jpg)](https://github.com/Bulbash3r/Kewbr-Quiz/edit/master/UX%20improvement/InGame%20-%20After.jpg)
