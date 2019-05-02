@@ -80,6 +80,7 @@ public class GameScene implements Initializable {
     private boolean isServer;
 
     private String nickname;
+    private
 
     /**
      * Конструктор для хоста
