@@ -298,7 +298,11 @@ public class PackEditor implements Initializable {
 
     private void insertQuestionWindow(int index) {
         if (index >= 0) {
-            QuestionWindow questionWindow = new QuestionWindow(this, index);
+            QuestionWindow questionWindow;
+            if (index == tbvQuestions.getItems().size())
+                questionWindow = new QuestionWindow(this, index);
+            else
+                questionWindow = new QuestionWindow(this, tbvQuestions.getItems().get(index), index);
         }
     }
 

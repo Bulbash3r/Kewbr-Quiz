@@ -2,6 +2,7 @@ package App;
 
 import App.Controllers.ControllersManager;
 import App.Models.Pack;
+import App.Models.Parser;
 import com.google.gson.Gson;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -62,19 +63,6 @@ public class Main extends Application {
     }
 
     public static void main(String[] args) {
-        Pack pack = new Pack("Pack #1", 3, new Date());
-        pack.addNewQuestion("Who?", "Me");
-        pack.addNewQuestion("What?", "That");
-        pack.addNewQuestion("Why?", "because");
-        Gson gson = new Gson();
-        String temp = gson.toJson(pack);
-        try {
-            FileWriter fileWriter = new FileWriter(new File("../Test.kwq"), false);
-            fileWriter.write(temp);
-            fileWriter.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
         launch(args);
     }
 }
