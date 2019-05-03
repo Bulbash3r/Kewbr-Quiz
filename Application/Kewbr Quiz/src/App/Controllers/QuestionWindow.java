@@ -46,6 +46,7 @@ public class QuestionWindow implements Initializable {
         this.index = index;
 
         stage = new Stage();
+        stage.setTitle("Write question and answer");
         stage.initModality(Modality.WINDOW_MODAL);
         stage.initOwner(packEditor.getStage().getScene().getWindow());
 
