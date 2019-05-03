@@ -1,5 +1,5 @@
 package App;
-
+/*
 import junit.framework.Assert;
 import org.junit.jupiter.api.Test;
 
@@ -8,4 +8,4 @@ public class SampleTest {
     public void test(){
         Assert.assertTrue(true);
     }
-}
+}*/

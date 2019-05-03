@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Separator?>
@@ -8,15 +13,17 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-
-<VBox spacing="10.0" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml">
+<VBox spacing="10.0" style="-fx-background-color: #1D2228;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <TextArea fx:id="txtAreaQuestion" promptText="Question" />
+      <TextArea fx:id="txtAreaQuestion" promptText="Question" style="-fx-background-color: #1D2228;" />
       <HBox alignment="CENTER" spacing="10.0">
          <children>
-            <TextField fx:id="txtFieldAnswer" prefWidth="200.0" promptText="Answer" />
+            <TextField fx:id="txtFieldAnswer" prefWidth="200.0" promptText="Answer" style="-fx-background-color: #E1E2E2;" />
             <Separator prefWidth="160.0" visible="false" />
-            <Button fx:id="btnOk" mnemonicParsing="false" prefHeight="70.0" prefWidth="100.0" text="Ok" />
+            <Button fx:id="btnOk" mnemonicParsing="false" prefHeight="70.0" prefWidth="100.0" style="-fx-background-color: #FB8122;" text="OK" textFill="#e1e2e2">
+               <font>
+                  <Font name="System Bold" size="17.0" />
+               </font></Button>
          </children>
       </HBox>
    </children>

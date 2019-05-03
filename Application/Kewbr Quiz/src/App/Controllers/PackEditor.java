@@ -165,7 +165,7 @@ public class PackEditor implements Initializable {
         tbvQuestions.getColumns().addAll(questionColumn, answerColumn);
 
         cmbBoxDifficulty.getItems().addAll("1 - Novice", "2 - Apprentice", "3 - Adept", "4 - Expert", "5 - Master");
-        cmbBoxDifficulty.setValue("1 -Novice");
+        cmbBoxDifficulty.setValue("1 - Novice");
 
         btnBackEditor.setOnAction(new EventHandler<ActionEvent>() {
             @Override
