@@ -5,9 +5,14 @@
   </component>
   <component name="ChangeListManager">
 <<<<<<< HEAD
+<<<<<<< HEAD
     <list default="true" id="9988828c-8b83-4fed-8dc9-5f684c44acec" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Kewbr Quiz.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Kewbr Quiz.iml" afterDir="false" />
+=======
+    <list default="true" id="654382a0-03a4-4674-8f4d-ddf0b506a518" name="Default Changelist" comment="Editor refactoring and integration to main app (done)">
+      <change beforePath="$PROJECT_DIR$/src/App/Controllers/GameScene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/App/Controllers/GameScene.java" afterDir="false" />
+>>>>>>> parent of af74b70... some things
 =======
     <list default="true" id="654382a0-03a4-4674-8f4d-ddf0b506a518" name="Default Changelist" comment="Editor refactoring and integration to main app (done)">
       <change beforePath="$PROJECT_DIR$/src/App/Controllers/GameScene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/App/Controllers/GameScene.java" afterDir="false" />
@@ -21,9 +26,12 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
 <<<<<<< HEAD
+<<<<<<< HEAD
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
 =======
+=======
+>>>>>>> parent of af74b70... some things
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/Kewbr_Quiz$Main.ic" NAME="Main Coverage Results" MODIFIED="1552137738480" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>App.*</FILTER>
@@ -242,10 +250,13 @@
   <component name="JsGulpfileManager">
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
+<<<<<<< HEAD
   </component>
 <<<<<<< HEAD
   <component name="NodePackageJsonFileManager">
     <packageJsonPaths />
+=======
+>>>>>>> parent of af74b70... some things
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="953" />
@@ -351,6 +362,9 @@
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\nikit\IdeaProjects\Kewbr-Quiz\Application\Kewbr Quiz\src" />
     </key>
+<<<<<<< HEAD
+>>>>>>> parent of af74b70... some things
+=======
 >>>>>>> parent of af74b70... some things
   </component>
   <component name="RunDashboard">
@@ -365,6 +379,7 @@
       </list>
     </option>
   </component>
+<<<<<<< HEAD
 <<<<<<< HEAD
   <component name="RunManager">
     <configuration default="true" type="Application" factoryName="Application">
@@ -462,6 +477,61 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+=======
+  <component name="RunManager" selected="Application.Main">
+    <configuration name="Client" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="App.Models.Client" />
+      <module name="Kewbr Quiz" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="App.Models.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Client2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="App.Models.Client2" />
+      <module name="Kewbr Quiz" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="App.Models.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="App.Main" />
+      <module name="Kewbr Quiz" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="App.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Server" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="App.Models.Server" />
+      <module name="Kewbr Quiz" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="App.Models.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+>>>>>>> parent of af74b70... some things
     <configuration name="SampleTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Kewbr Quiz" />
       <extension name="coverage">
@@ -500,6 +570,7 @@
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
 <<<<<<< HEAD
+<<<<<<< HEAD
       <changelist id="9988828c-8b83-4fed-8dc9-5f684c44acec" name="Default" comment="" />
       <created>1557341873120</created>
       <option name="number" value="Default" />
@@ -514,6 +585,8 @@
       <workItem from="1557342966974" duration="9000" />
     </task>
 =======
+=======
+>>>>>>> parent of af74b70... some things
       <changelist id="654382a0-03a4-4674-8f4d-ddf0b506a518" name="Default Changelist" comment="" />
       <created>1550074743332</created>
       <option name="number" value="Default" />
@@ -575,12 +648,19 @@
       <updated>1554753126491</updated>
     </task>
     <option name="localTasksCounter" value="5" />
+<<<<<<< HEAD
+>>>>>>> parent of af74b70... some things
+=======
 >>>>>>> parent of af74b70... some things
     <servers />
   </component>
   <component name="TimeTrackingManager">
 <<<<<<< HEAD
+<<<<<<< HEAD
     <option name="totallyTimeSpent" value="498000" />
+=======
+    <option name="totallyTimeSpent" value="108340000" />
+>>>>>>> parent of af74b70... some things
 =======
     <option name="totallyTimeSpent" value="108340000" />
 >>>>>>> parent of af74b70... some things
@@ -588,6 +668,7 @@
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <layout>
+<<<<<<< HEAD
 <<<<<<< HEAD
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -613,6 +694,8 @@
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
 =======
+=======
+>>>>>>> parent of af74b70... some things
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20196672" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
@@ -637,6 +720,9 @@
       <window_info anchor="bottom" id="CheckStyle" order="14" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+<<<<<<< HEAD
+>>>>>>> parent of af74b70... some things
+=======
 >>>>>>> parent of af74b70... some things
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Palette" order="3" />
@@ -656,12 +742,15 @@
     <option name="myLimit" value="2678400000" />
   </component>
 <<<<<<< HEAD
+<<<<<<< HEAD
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/App/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="432">
           <caret line="24" column="18" lean-forward="true" selection-start-line="24" selection-start-column="18" selection-end-line="24" selection-end-column="18" />
 =======
+=======
+>>>>>>> parent of af74b70... some things
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Editor refactoring and integration to main app (not done)" />
     <MESSAGE value="Editor refactoring and integration to main app (done)" />
@@ -942,6 +1031,9 @@
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+<<<<<<< HEAD
+>>>>>>> parent of af74b70... some things
+=======
 >>>>>>> parent of af74b70... some things
         </state>
       </provider>
