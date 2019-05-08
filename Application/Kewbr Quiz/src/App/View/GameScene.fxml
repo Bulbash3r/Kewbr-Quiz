@@ -27,7 +27,7 @@
    <children>
       <StackPane prefHeight="345.0" prefWidth="504.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <BorderPane fx:id="brdPaneClient" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #1D2228;">
+            <BorderPane fx:id="brdPaneClient" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #1D2228;" visible="false">
                <top>
                   <AnchorPane BorderPane.alignment="CENTER">
                      <children>
@@ -117,57 +117,66 @@
                   </VBox>
                </center>
             </BorderPane>
-            <BorderPane fx:id="brdPaneHost" prefHeight="200.0" prefWidth="200.0" visible="false">
+            <BorderPane fx:id="brdPaneHost" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #1D2228;">
                <right>
                   <VBox alignment="TOP_CENTER" spacing="1.0" BorderPane.alignment="CENTER">
                      <children>
-                        <ScrollPane fx:id="scrollPaneChatHost" prefHeight="327.0">
+                        <ScrollPane fx:id="scrollPaneChatHost" prefHeight="327.0" style="-fx-background-color: #e1e2e2;">
                            <content>
                               <VBox fx:id="vboxChatHost" maxWidth="147.0" prefWidth="147.0" />
                            </content>
                         </ScrollPane>
-                        <TextField fx:id="txtFieldChatHost" promptText="Write your message" />
+                        <TextField fx:id="txtFieldChatHost" promptText="Write your message" style="-fx-background-color: #e1e2e2;" />
                      </children>
                   </VBox>
                </right>
                <top>
-                  <AnchorPane BorderPane.alignment="CENTER">
+                  <AnchorPane style="-fx-background-color: #1D2228;" BorderPane.alignment="CENTER">
                      <children>
                         <HBox alignment="CENTER" spacing="20.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <children>
                               <VBox>
                                  <children>
-                                    <ScrollPane prefHeight="120.0" prefWidth="300.0">
+                                    <ScrollPane prefHeight="120.0" prefWidth="300.0" style="-fx-background-color: #e1e2e2;">
                                        <content>
                                           <VBox fx:id="vboxQuestionsHost" alignment="TOP_CENTER" maxWidth="298.0" prefWidth="298.0" />
                                        </content>
                                     </ScrollPane>
                                     <HBox spacing="10.0">
                                        <children>
-                                          <Label text="Answer:" />
-                                          <Label fx:id="lblAnswer" text="lblAnswer" />
+                                          <Label text="Answer:" textFill="#e1e2e2" />
+                                          <Label fx:id="lblAnswer" text="lblAnswer" textFill="#e1e2e2" />
                                        </children>
                                     </HBox>
                                  </children>
                               </VBox>
                               <VBox alignment="CENTER" spacing="5.0">
                                  <children>
-                                    <Label text="IP Host:" />
-                                    <Label fx:id="lblIP" text="192.168.1.128" />
-                                    <Label text="Port Host:" />
-                                    <Label fx:id="lblPort" text="8000" />
+                                    <Label text="IP Host:" textFill="#e1e2e2" />
+                                    <Label fx:id="lblIP" text="192.168.1.128" textFill="#e1e2e2" />
+                                    <Label text="Port Host:" textFill="#e1e2e2" />
+                                    <Label fx:id="lblPort" text="8000" textFill="#e1e2e2" />
                                  </children>
                               </VBox>
                               <VBox alignment="CENTER" spacing="5.0">
                                  <children>
-                                    <Button fx:id="btnStart" mnemonicParsing="false" prefWidth="70.0" text="Start" />
-                                    <Button fx:id="btnStop" mnemonicParsing="false" prefWidth="70.0" text="Stop" />
-                                    <Button fx:id="btnExitHost" mnemonicParsing="false" prefWidth="70.0" text="Exit" />
+                                    <Button fx:id="btnStart" mnemonicParsing="false" prefWidth="70.0" style="-fx-background-color: #FB8122; -fx-background-radius: 10 0 0 0;" text="Start" textFill="#e1e2e2">
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font></Button>
+                                    <Button fx:id="btnStop" mnemonicParsing="false" prefWidth="70.0" style="-fx-background-color: #FB8122; -fx-background-radius: 0 0 0 0;" text="Stop" textFill="#e1e2e2">
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font></Button>
+                                    <Button fx:id="btnExitHost" mnemonicParsing="false" prefWidth="70.0" style="-fx-background-color: #FB8122; -fx-background-radius: 0 0 10 0;" text="Exit" textFill="#e1e2e2">
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font></Button>
                                  </children>
                               </VBox>
                            </children>
                         </HBox>
-                        <Label fx:id="lblTimerHost" layoutX="562.0" layoutY="60.0" text="Timer" AnchorPane.bottomAnchor="60.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="60.0" />
+                        <Label fx:id="lblTimerHost" layoutX="562.0" layoutY="60.0" text="Timer" textFill="#e1e2e2" AnchorPane.bottomAnchor="60.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="60.0" />
                      </children>
                   </AnchorPane>
                </top>
