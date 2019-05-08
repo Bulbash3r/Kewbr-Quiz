@@ -34,6 +34,8 @@
 
 [![Пришло время устранять долги!](https://habrastorage.org/webt/t-/zt/wv/t-ztwva0xdzemq6jhb0aocf_pc4.png "Пришло время устранять долги!")](https://habrastorage.org/webt/t-/zt/wv/t-ztwva0xdzemq6jhb0aocf_pc4.png "Пришло время устранять долги!")
 
+Подробный отчёт checkstyle можно найти по ссылке в репозитории проекта: [тык!](https://github.com/Bulbash3r/Kewbr-Quiz/tree/master/Development%20Dept/checkstyle "тык!")
+
 Проанализировав код проекта по каждому из признаков мы выяснили, что:
 
 | Признак  | Результат анализа  |
