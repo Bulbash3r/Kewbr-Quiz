@@ -24,10 +24,7 @@
         <SOURCES />
       </library>
     </orderEntry>
-<<<<<<< HEAD
-=======
     <orderEntry type="library" name="testng-6.0" level="project" />
     <orderEntry type="library" name="junit5-1.26.1011" level="project" />
->>>>>>> 294f87f085c3ba3d02e43d77f20d648e1f84493c
   </component>
 </module>
