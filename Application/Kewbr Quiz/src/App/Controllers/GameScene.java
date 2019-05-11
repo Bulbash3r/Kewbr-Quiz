@@ -65,6 +65,8 @@ public class GameScene implements Initializable {
     VBox vboxChatHost;
     private @FXML
     VBox vboxQuestionsClient;
+    private @FXML
+    VBox vboxQuestionsHost;
 
     private @FXML
     TextField txtFieldChatClient;
@@ -111,14 +113,14 @@ public class GameScene implements Initializable {
      * @param host -- ip адрес хоста
      * @param port -- номер порта хоста
      * @param manager -- ссылка на центральный контроллер
-     * @see Client#run()
+     * @see Client#run(String)
      */
     GameScene(String nickname, String host, int port, ControllersManager manager) {
         this.nickname = nickname;
         this.manager = manager;
         client = new Client(port, host, this);
         isServer = false;
-        client.run();
+        client.run(nickname);
     }
 
     @Override
@@ -170,6 +172,8 @@ public class GameScene implements Initializable {
              */
             @Override
             public void handle(ActionEvent event) {
+                if (isPaused)
+                    stopTime();
                 server.shutdown();
                 manager.backToMenu();
             }
@@ -292,9 +296,17 @@ public class GameScene implements Initializable {
         timeline.play();
     }
 
+    public void addUser(String nickname) {
+
+    }
+
     public void addQuestion(String question) {
         questionsCounter++;
-        vboxQuestionsClient.getChildren().add(new Label(questionsCounter + ": " + question));
+
+        if (isServer)
+            vboxQuestionsHost.getChildren().add(new Label(questionsCounter + ": " + question));
+        else
+            vboxQuestionsClient.getChildren().add(new Label(questionsCounter + ": " + question));
     }
 
     /**

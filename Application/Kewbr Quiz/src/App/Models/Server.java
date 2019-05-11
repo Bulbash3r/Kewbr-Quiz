@@ -85,7 +85,7 @@ public class Server {
      */
     public void writeMessage(String message) {
         for (Channel c : ServerHandler.getChannels())
-            c.writeAndFlush("<M>" + gameScene.getNickname() + "</MN>" + message);
+            c.writeAndFlush("<M>" + gameScene.getNickname() + "</MN>" + message + "\r\n");
         Platform.runLater(new Runnable() {
             @Override
             public void run() {
@@ -96,7 +96,7 @@ public class Server {
 
     public void writeHost(String cmd) {
         for (Channel c : ServerHandler.getChannels())
-            c.writeAndFlush("<H>" + cmd);
+            c.writeAndFlush("<H>" + cmd + "\r\n");
     }
 }
 
@@ -225,6 +225,17 @@ class ServerHandler extends SimpleChannelInboundHandler <String> {
                 break;
 
             case "I":
+                for (Channel c : channels) {
+                    if (c != incoming)
+                        c.writeAndFlush("<M>" + strings[1] + "</MN>has joined!!!\r\n");
+                }
+
+                Platform.runLater(new Runnable() {
+                    @Override
+                    public void run() {
+                        gameScene.print("[" + strings[1] + "] has joined!!!\r\n");
+                    }
+                });
                 break;
 
             default:

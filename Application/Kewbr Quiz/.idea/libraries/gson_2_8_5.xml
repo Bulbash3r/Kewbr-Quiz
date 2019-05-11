@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="gson-2.8.5">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/Libs/gson-2.8.5.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Libs/netty-all-4.1.33.Final.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Libs/testng-6.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

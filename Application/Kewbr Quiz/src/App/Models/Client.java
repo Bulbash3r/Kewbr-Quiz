@@ -37,7 +37,7 @@ public class Client {
         this.gameScene = gameScene;
     }
 
-    public void run() {
+    public void run(String nickname) {
         group = new NioEventLoopGroup();
 
         try {
@@ -50,6 +50,8 @@ public class Client {
         } catch (InterruptedException ex) {
             ex.printStackTrace();
         }
+
+        channel.writeAndFlush("<I>" + nickname + "\r\n");
     }
 
     /**
@@ -66,7 +68,7 @@ public class Client {
      * @see Channel#writeAndFlush(Object)
      */
     public void writeMessage(String message) {
-        channel.writeAndFlush("<M>" + gameScene.getNickname() + "</MN>" + message);
+        channel.writeAndFlush("<M>" + gameScene.getNickname() + "</MN>" + message + "\r\n");
         Platform.runLater(new Runnable() {
             @Override
             public void run() {
@@ -142,7 +144,7 @@ class ClientHandler extends SimpleChannelInboundHandler<String> {
                 Platform.runLater(new Runnable() {
                     @Override
                     public void run() {
-                        gameScene.print("[" + strings[1] + "] " + strings[2] + "\r\n");
+                        gameScene.print("[" + strings[1] + "] " + strings[2]);
                     }
                 });
                 break;
@@ -162,9 +164,18 @@ class ClientHandler extends SimpleChannelInboundHandler<String> {
                         break;
 
                     case "Stop":
-                        if (gameScene.isPaused())
+                        if (!gameScene.isPaused())
                             gameScene.stopTime();
+                        break;
+
+                    default:
+                        break;
                 }
+
+                break;
+
+            default:
+                break;
         }
     }
 }

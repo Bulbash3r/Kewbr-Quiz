@@ -8,11 +8,11 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="netty-all-4.1.33.Final" level="project" />
-    <orderEntry type="library" name="gson-2.8.5" level="project" />
-    <orderEntry type="library" name="checkstyle:checkstyle:5.0" level="project" />
-    <orderEntry type="library" name="junit5-1.26.101" level="project" />
-    <orderEntry type="module-library" scope="TEST">
+    <orderEntry type="library" exported="" name="netty-all-4.1.33.Final" level="project" />
+    <orderEntry type="library" exported="" name="gson-2.8.5" level="project" />
+    <orderEntry type="library" exported="" name="checkstyle:checkstyle:5.0" level="project" />
+    <orderEntry type="library" exported="" name="junit5-1.26.101" level="project" />
+    <orderEntry type="module-library" exported="" scope="TEST">
       <library name="JUnit5.2">
         <CLASSES>
           <root url="jar://$MAVEN_REPOSITORY$/org/junit/jupiter/junit-jupiter-api/5.5.0-M1/junit-jupiter-api-5.5.0-M1.jar!/" />
@@ -24,7 +24,7 @@
         <SOURCES />
       </library>
     </orderEntry>
-    <orderEntry type="library" name="testng-6.0" level="project" />
-    <orderEntry type="library" name="junit5-1.26.1011" level="project" />
+    <orderEntry type="library" exported="" name="testng-6.0" level="project" />
+    <orderEntry type="library" exported="" name="junit5-1.26.1011" level="project" />
   </component>
 </module>
