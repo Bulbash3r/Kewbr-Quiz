@@ -83,15 +83,20 @@ public class Server {
      * @param message -- сообщение
      * @see Channel#writeAndFlush(Object)
      */
-    public void write(String message) {
+    public void writeMessage(String message) {
         for (Channel c : ServerHandler.getChannels())
-            c.writeAndFlush("[" + gameScene.getNickname() + "] " + message + "\r\n");
+            c.writeAndFlush("<M>" + gameScene.getNickname() + "</MN>" + message);
         Platform.runLater(new Runnable() {
             @Override
             public void run() {
                 gameScene.print("[" + gameScene.getNickname() + "] " + message);
             }
         });
+    }
+
+    public void writeHost(String cmd) {
+        for (Channel c : ServerHandler.getChannels())
+            c.writeAndFlush("<H>" + cmd);
     }
 }
 
@@ -155,7 +160,7 @@ class ServerHandler extends SimpleChannelInboundHandler <String> {
      */
     @Override
     public void handlerAdded(ChannelHandlerContext ctx) throws Exception {
-        Channel incoming = ctx.channel();
+        /*Channel incoming = ctx.channel();
         for (Channel c : channels)
             c.writeAndFlush(incoming.remoteAddress() + " has joined!\n");
         Platform.runLater(new Runnable() {
@@ -163,7 +168,7 @@ class ServerHandler extends SimpleChannelInboundHandler <String> {
             public void run() {
                 gameScene.print(incoming.remoteAddress() + " has joined!\n");
             }
-        });
+        });*/
         channels.add(ctx.channel());
     }
 
@@ -199,15 +204,32 @@ class ServerHandler extends SimpleChannelInboundHandler <String> {
     @Override
     protected void channelRead0(ChannelHandlerContext chc, String s) throws Exception {
         Channel incoming = chc.channel();
-        for (Channel c : channels)
-            if (c != incoming)
-                c.writeAndFlush(s + "\n");
-            Platform.runLater(new Runnable() {
-                @Override
-                public void run() {
-                    gameScene.print(s);
+        String[] strings = Parser.parse(s);
+
+        switch (strings[0]) {
+            case "M":
+                for (Channel c : channels) {
+                    if (c != incoming)
+                        c.writeAndFlush(s);
                 }
-            });
+
+                Platform.runLater(new Runnable() {
+                    @Override
+                    public void run() {
+                        gameScene.print("[" + strings[1] + "] " + strings[2] + "\r\n");
+                    }
+                });
+                break;
+
+            case "A":
+                break;
+
+            case "I":
+                break;
+
+            default:
+                break;
+        }
     }
 
     /**

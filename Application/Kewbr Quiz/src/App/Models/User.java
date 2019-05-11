@@ -41,4 +41,8 @@ public class User {
         hBox.getChildren().addAll(imgvAvatar, lblNickname, hBoxButtons, lblAnswer);
         hBoxButtons.setAlignment(Pos.CENTER_LEFT);
     }
+
+    public HBox gethBox() {
+        return hBox;
+    }
 }

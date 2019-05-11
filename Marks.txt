@@ -1,0 +1,9 @@
+<Q>Some Text			Question
+<A>Nickname</AN>Some Text	Answer
+<M>Nickname</MN>Some Text	Message
+<H>Start			Start game
+<H>Stop				Stop game
+<H>Right			Right answer
+<H>Wrong			Wrong answer
+<I>Nickname			Nickname init
+<C>1..5				Number

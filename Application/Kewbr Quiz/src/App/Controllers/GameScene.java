@@ -2,18 +2,20 @@ package App.Controllers;
 
 import App.Models.Client;
 import App.Models.Server;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
+import javafx.util.Duration;
 
-import javax.swing.text.html.ImageView;
 import java.net.InetAddress;
 import java.net.URL;
 import java.net.UnknownHostException;
@@ -26,9 +28,9 @@ import java.util.ResourceBundle;
 public class GameScene implements Initializable {
 
     private @FXML
-    BorderPane btdPaneClient;
+    BorderPane brdPaneClient;
     private @FXML
-    BorderPane btdPaneHost;
+    BorderPane brdPaneHost;
 
     private @FXML
     Button btnExitClient;
@@ -61,6 +63,8 @@ public class GameScene implements Initializable {
     VBox vboxChatClient;
     private @FXML
     VBox vboxChatHost;
+    private @FXML
+    VBox vboxQuestionsClient;
 
     private @FXML
     TextField txtFieldChatClient;
@@ -77,9 +81,15 @@ public class GameScene implements Initializable {
 
     private Server server;
     private Client client;
+
     private boolean isServer;
+    private boolean isPaused = false;
 
     private String nickname;
+    private int questionsCounter = 0;
+    private int timeForAnswer = 60;
+    private int currentTime;
+    private Timeline timeline;
 
     /**
      * Конструктор для хоста
@@ -115,80 +125,112 @@ public class GameScene implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         lblNickname.setText(nickname);
 
-        //Если это сервер, выставляем отображение ip адреса и номера порта
-        if (isServer) {
-            try {
-                lblIP.setText(InetAddress.getLocalHost().toString().split("/")[1]);
-                lblPort.setText("8000");
-            } catch (UnknownHostException e) {
-                e.printStackTrace();
-            }
+        if (isServer)
+            serverInit();
+        else
+            clientInit();
+    }
+
+    private void serverInit() {
+        brdPaneHost.setVisible(true);
+        brdPaneClient.setVisible(false);
+
+        //Выставляем отображение ip адреса и номера порта
+        try {
+            lblIP.setText(InetAddress.getLocalHost().toString().split("/")[1]);
+            lblPort.setText("8000");
+        } catch (UnknownHostException e) {
+            e.printStackTrace();
         }
 
         /*
          * Установка события, которе инициирует отправку сообщения
          * при нажатии на Enter
          */
-        if (isServer) {
-            txtFieldChatHost.setOnKeyReleased(new EventHandler<KeyEvent>() {
-                /**
-                 * @see Server#write(String)
-                 * @see Client#write(String)
-                 */
-                @Override
-                public void handle(KeyEvent event) {
-                    if (event.getCode() != KeyCode.ENTER)
-                        return;
-                    if (!txtFieldChatHost.getText().isEmpty() && txtFieldChatHost.getText().length() <= 20) {
-                        server.write(txtFieldChatHost.getText());
-                        txtFieldChatHost.clear();
-                    }
+        txtFieldChatHost.setOnKeyReleased(new EventHandler<KeyEvent>() {
+            /**
+             * @see Server#writeMessage(String)
+             */
+            @Override
+            public void handle(KeyEvent event) {
+                if (event.getCode() != KeyCode.ENTER)
+                    return;
+                if (!txtFieldChatHost.getText().isEmpty() && txtFieldChatHost.getText().length() <= 20) {
+                    server.writeMessage(txtFieldChatHost.getText());
+                    txtFieldChatHost.clear();
                 }
-            });
-        } else {
-            txtFieldChatClient.setOnKeyReleased(new EventHandler<KeyEvent>() {
-                /**
-                 * @see Server#write(String)
-                 * @see Client#write(String)
-                 */
-                @Override
-                public void handle(KeyEvent event) {
-                    if (event.getCode() != KeyCode.ENTER)
-                        return;
-                    if (!txtFieldChatClient.getText().isEmpty() && txtFieldChatClient.getText().length() <= 20) {
-                        client.write(txtFieldChatClient.getText());
-                        txtFieldChatClient.clear();
-                    }
-                }
-            });
-        }
+            }
+        });
 
         //Выход из игры в главное меню
-        if (isServer) {
-            btnExitHost.setOnAction(new EventHandler<ActionEvent>() {
-                /**
-                 * @see Server#shutdown()
-                 * @see ControllersManager#backToMenu()
-                 */
-                @Override
-                public void handle(ActionEvent event) {
-                    server.shutdown();
-                    manager.backToMenu();
+        btnExitHost.setOnAction(new EventHandler<ActionEvent>() {
+            /**
+             * @see Server#shutdown()
+             * @see ControllersManager#backToMenu()
+             */
+            @Override
+            public void handle(ActionEvent event) {
+                server.shutdown();
+                manager.backToMenu();
+            }
+        });
+
+        btnStart.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                server.writeHost("Start");
+                if (isPaused)
+                    continueTime();
+                else
+                    doTime();
+            }
+        });
+
+        btnStop.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                server.writeHost("Stop");
+                if (timeline != null)
+                    stopTime();
+            }
+        });
+    }
+
+    private void clientInit() {
+        brdPaneHost.setVisible(false);
+        brdPaneClient.setVisible(true);
+
+        /*
+         * Установка события, которе инициирует отправку сообщения
+         * при нажатии на Enter
+         */
+        txtFieldChatClient.setOnKeyReleased(new EventHandler<KeyEvent>() {
+            /**
+             * @see Client#writeMessage(String)
+             */
+            @Override
+            public void handle(KeyEvent event) {
+                if (event.getCode() != KeyCode.ENTER)
+                    return;
+                if (!txtFieldChatClient.getText().isEmpty() && txtFieldChatClient.getText().length() <= 20) {
+                    client.writeMessage(txtFieldChatClient.getText());
+                    txtFieldChatClient.clear();
                 }
-            });
-        } else {
-            btnExitClient.setOnAction(new EventHandler<ActionEvent>() {
-                /**
-                 * @see Client#shutdown()
-                 * @see ControllersManager#backToMenu()
-                 */
-                @Override
-                public void handle(ActionEvent event) {
-                    client.shutdown();
-                    manager.backToMenu();
-                }
-            });
-        }
+            }
+        });
+
+        //Выход из игры в главное меню
+        btnExitClient.setOnAction(new EventHandler<ActionEvent>() {
+            /**
+             * @see Client#shutdown()
+             * @see ControllersManager#backToMenu()
+             */
+            @Override
+            public void handle(ActionEvent event) {
+                client.shutdown();
+                manager.backToMenu();
+            }
+        });
     }
 
     /**
@@ -198,11 +240,61 @@ public class GameScene implements Initializable {
     public void print(String message) {
         if (isServer) {
             vboxChatHost.getChildren().add(new Label(message));
-            scrollPaneChatHost.setVvalue(0.0);
+            scrollPaneChatHost.setVvalue(1.0);
         } else {
             vboxChatClient.getChildren().add(new Label(message));
-            scrollPaneChatClient.setVvalue(0.0);
+            scrollPaneChatClient.setVvalue(1.0);
         }
+    }
+
+    public void doTime() {
+        currentTime = timeForAnswer;
+
+        if (isServer)
+            lblTimerHost.setText(String.valueOf(currentTime));
+        else
+            lblTimerClient.setText(String.valueOf(currentTime));
+
+        if (timeline == null) {
+            timeline = new Timeline();
+            timeline.setCycleCount(Timeline.INDEFINITE);
+
+            timeline.stop();
+
+            KeyFrame keyFrame = new KeyFrame(Duration.seconds(1.0), new EventHandler<ActionEvent>() {
+                @Override
+                public void handle(ActionEvent event) {
+                    currentTime--;
+
+                    if (isServer)
+                        lblTimerHost.setText(String.valueOf(currentTime));
+                    else
+                        lblTimerClient.setText(String.valueOf(currentTime));
+
+                    if (currentTime <= 0)
+                        timeline.stop();
+                }
+            });
+
+            timeline.getKeyFrames().add(keyFrame);
+        }
+
+        timeline.playFromStart();
+    }
+
+    public void stopTime() {
+        isPaused = true;
+        timeline.stop();
+    }
+
+    public void continueTime() {
+        isPaused = false;
+        timeline.play();
+    }
+
+    public void addQuestion(String question) {
+        questionsCounter++;
+        vboxQuestionsClient.getChildren().add(new Label(questionsCounter + ": " + question));
     }
 
     /**
@@ -211,5 +303,9 @@ public class GameScene implements Initializable {
      */
     public String getNickname() {
         return lblNickname.getText();
+    }
+
+    public boolean isPaused() {
+        return isPaused;
     }
 }

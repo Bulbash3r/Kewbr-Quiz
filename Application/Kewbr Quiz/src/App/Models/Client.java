@@ -65,8 +65,8 @@ public class Client {
      * @param message -- сообщение
      * @see Channel#writeAndFlush(Object)
      */
-    public void write(String message) {
-        channel.writeAndFlush("[" + gameScene.getNickname() + "] " + message + "\r\n");
+    public void writeMessage(String message) {
+        channel.writeAndFlush("<M>" + gameScene.getNickname() + "</MN>" + message);
         Platform.runLater(new Runnable() {
             @Override
             public void run() {
@@ -135,11 +135,36 @@ class ClientHandler extends SimpleChannelInboundHandler<String> {
      */
     @Override
     protected void channelRead0(ChannelHandlerContext chc, String s) throws Exception {
-        Platform.runLater(new Runnable() {
-            @Override
-            public void run() {
-                gameScene.print(s);
-            }
-        });
+
+        String[] strings = Parser.parse(s);
+        switch (strings[0]) {
+            case "M":
+                Platform.runLater(new Runnable() {
+                    @Override
+                    public void run() {
+                        gameScene.print("[" + strings[1] + "] " + strings[2] + "\r\n");
+                    }
+                });
+                break;
+
+            case "Q":
+                gameScene.addQuestion(strings[1]);
+                break;
+
+            case "H":
+
+                switch (strings[1]) {
+                    case "Start":
+                        if (gameScene.isPaused())
+                            gameScene.continueTime();
+                        else
+                            gameScene.doTime();
+                        break;
+
+                    case "Stop":
+                        if (gameScene.isPaused())
+                            gameScene.stopTime();
+                }
+        }
     }
 }
