@@ -54,6 +54,10 @@ public class Client {
         channel.writeAndFlush("<I>" + nickname + "\r\n");
     }
 
+    public void outMessage(String nickname) {
+        channel.writeAndFlush("<O>" + nickname + "\r\n");
+    }
+
     /**
      * Метод для отключения пользователя
      * @see EventLoop#shutdownGracefully()
@@ -139,6 +143,7 @@ class ClientHandler extends SimpleChannelInboundHandler<String> {
     protected void channelRead0(ChannelHandlerContext chc, String s) throws Exception {
 
         String[] strings = Parser.parse(s);
+
         switch (strings[0]) {
             case "M":
                 Platform.runLater(new Runnable() {
@@ -150,7 +155,12 @@ class ClientHandler extends SimpleChannelInboundHandler<String> {
                 break;
 
             case "Q":
-                gameScene.addQuestion(strings[1]);
+                Platform.runLater(new Runnable() {
+                    @Override
+                    public void run() {
+                        gameScene.addQuestion(strings[1]);
+                    }
+                });
                 break;
 
             case "H":
@@ -171,7 +181,35 @@ class ClientHandler extends SimpleChannelInboundHandler<String> {
                     default:
                         break;
                 }
+                break;
 
+            case "I":
+                Platform.runLater(new Runnable() {
+                    @Override
+                    public void run() {
+                        gameScene.print("[" + strings[1] + "] has joined!!!\r\n");
+                        gameScene.addUser(strings[1]);
+                    }
+                });
+                break;
+
+            case "O":
+                Platform.runLater(new Runnable() {
+                    @Override
+                    public void run() {
+                        gameScene.print("[" + strings[1] + "] has left!!!\r\n");
+                        gameScene.removeUser(strings[1]);
+                    }
+                });
+                break;
+
+            case "HA":
+                Platform.runLater(new Runnable() {
+                    @Override
+                    public void run() {
+                        gameScene.checkAnswer(strings[1], strings[2]);
+                    }
+                });
                 break;
 
             default:

@@ -1,6 +1,7 @@
 package App.Models;
 
 import App.Controllers.GameScene;
+import App.Main;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.*;
 import io.netty.channel.group.ChannelGroup;
@@ -17,6 +18,7 @@ import javafx.application.Platform;
 
 import java.io.IOException;
 import java.net.InetAddress;
+import java.util.Map;
 
 /**
  * Класс, представляющий сервер
@@ -95,6 +97,11 @@ public class Server {
     }
 
     public void writeHost(String cmd) {
+        for (Channel c : ServerHandler.getChannels())
+            c.writeAndFlush("<H>" + cmd + "\r\n");
+    }
+
+    public void writeHost(String cmd, String nickname) {
         for (Channel c : ServerHandler.getChannels())
             c.writeAndFlush("<H>" + cmd + "\r\n");
     }
@@ -181,7 +188,7 @@ class ServerHandler extends SimpleChannelInboundHandler <String> {
      */
     @Override
     public void handlerRemoved(ChannelHandlerContext ctx) throws Exception {
-        Channel incoming = ctx.channel();
+        /*Channel incoming = ctx.channel();
         for (Channel c : channels)
             c.writeAndFlush(incoming.remoteAddress() + " has left!\n");
         Platform.runLater(new Runnable() {
@@ -189,7 +196,7 @@ class ServerHandler extends SimpleChannelInboundHandler <String> {
             public void run() {
                 gameScene.print(incoming.remoteAddress() + " has left!\n");
             }
-        });
+        });*/
         channels.remove(ctx.channel());
     }
 
@@ -210,7 +217,7 @@ class ServerHandler extends SimpleChannelInboundHandler <String> {
             case "M":
                 for (Channel c : channels) {
                     if (c != incoming)
-                        c.writeAndFlush(s);
+                        c.writeAndFlush(s + "\r\n");
                 }
 
                 Platform.runLater(new Runnable() {
@@ -222,18 +229,44 @@ class ServerHandler extends SimpleChannelInboundHandler <String> {
                 break;
 
             case "A":
+                Platform.runLater(new Runnable() {
+                    @Override
+                    public void run() {
+                        gameScene.checkAnswer(strings[1], strings[2]);
+                    }
+                });
                 break;
 
             case "I":
                 for (Channel c : channels) {
                     if (c != incoming)
-                        c.writeAndFlush("<M>" + strings[1] + "</MN>has joined!!!\r\n");
+                        c.writeAndFlush(s + "\r\n");
+                }
+
+                for (Map.Entry<String, User> e : gameScene.getUsersSet()) {
+                    incoming.writeAndFlush("<I>" + e.getKey() + "\r\n");
                 }
 
                 Platform.runLater(new Runnable() {
                     @Override
                     public void run() {
                         gameScene.print("[" + strings[1] + "] has joined!!!\r\n");
+                        gameScene.addUser(strings[1]);
+                    }
+                });
+                break;
+
+            case "O":
+                for (Channel c : channels) {
+                    if (c != incoming)
+                        c.writeAndFlush(s + "\r\n");
+                }
+
+                Platform.runLater(new Runnable() {
+                    @Override
+                    public void run() {
+                        gameScene.print("[" + strings[1] + "] has left!!!\r\n");
+                        gameScene.removeUser(strings[1]);
                     }
                 });
                 break;

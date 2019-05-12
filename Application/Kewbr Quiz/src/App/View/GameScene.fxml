@@ -18,7 +18,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="552.0" prefWidth="661.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="552.0" prefWidth="661.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <StackPane prefHeight="345.0" prefWidth="504.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -28,7 +28,7 @@
                      <children>
                         <HBox alignment="CENTER_LEFT" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <children>
-                              <ImageView fx:id="imgvAvatar" fitHeight="75.0" fitWidth="75.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fx:id="imgvAvatar" fitHeight="75.0" fitWidth="75.0" pickOnBounds="true">
                                  <image>
                                     <Image url="@../../Images/User.png" />
                                  </image>
@@ -41,11 +41,11 @@
                                  <font>
                                     <Font name="System Bold" size="12.0" />
                                  </font></Button>
-                              <ImageView fx:id="imgvResult" fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../../Images/question_mark.png" />
-                                 </image>
-                              </ImageView>
+                              <Label fx:id="lblScore" text="0" textFill="#e1e2e2">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Label>
                            </children>
                         </HBox>
                         <Label fx:id="lblTimerClient" layoutX="257.0" layoutY="38.0" text="Timer" textFill="#e1e2e2" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="0.0">
@@ -83,7 +83,7 @@
                               <Font name="System Bold" size="12.0" />
                            </font></Label>
                         <TextField fx:id="txtFieldAnswer" promptText="Write your answer" style="-fx-background-color: #E1E2E2;" GridPane.rowIndex="1" />
-                        <Button fx:id="btnConfirm" mnemonicParsing="false" prefWidth="75.0" style="-fx-background-color: #FB8122; -fx-background-radius: 0 10 0 0;" text="Confirm" textFill="#e1e2e2" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                        <Button fx:id="btnConfirm" mnemonicParsing="false" prefWidth="75.0" style="-fx-background-color: #FB8122; -fx-background-radius: 0 10 0 0;" text="Confirm" textFill="#e0e0e0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                            <GridPane.margin>
                               <Insets left="10.0" />
                            </GridPane.margin>

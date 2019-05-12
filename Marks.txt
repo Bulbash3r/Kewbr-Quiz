@@ -3,7 +3,7 @@
 <M>Nickname</MN>Some Text	Message
 <H>Start			Start game
 <H>Stop				Stop game
-<H>Right			Right answer
-<H>Wrong			Wrong answer
-<I>Nickname			Nickname init
-<C>1..5				Number
+<HA>Nickname</HN>Right		Right answer
+<HA>Nickname</HN>Wrong		Wrong answer
+<I>Nickname			Nickname in
+<O>Nickname			Nickname out

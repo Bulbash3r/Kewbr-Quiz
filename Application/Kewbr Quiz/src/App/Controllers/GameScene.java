@@ -1,8 +1,10 @@
 package App.Controllers;
 
+import App.Main;
 import App.Models.Client;
 import App.Models.Pack;
 import App.Models.Server;
+import App.Models.User;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
@@ -10,6 +12,7 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
@@ -20,7 +23,10 @@ import javafx.util.Duration;
 import java.net.InetAddress;
 import java.net.URL;
 import java.net.UnknownHostException;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.ResourceBundle;
+import java.util.Set;
 
 /**
  * Класс контроллера игровой сцены
@@ -59,6 +65,10 @@ public class GameScene implements Initializable {
     Label lblIP;
     private @FXML
     Label lblPort;
+    private @FXML
+    Label lblAnswer;
+    private @FXML
+    Label lblScore;
 
     private @FXML
     VBox vboxChatClient;
@@ -68,6 +78,10 @@ public class GameScene implements Initializable {
     VBox vboxQuestionsClient;
     private @FXML
     VBox vboxQuestionsHost;
+    private @FXML
+    VBox vboxUsers;
+    private @FXML
+    VBox vboxUsersAndQuestions;
 
     private @FXML
     TextField txtFieldChatClient;
@@ -93,8 +107,10 @@ public class GameScene implements Initializable {
     private int timeForAnswer = 60;
     private int currentTime;
     private Timeline timeline;
+    private int score = 0;
 
     private Pack currPack = null;
+    private Map<String, User> users;
 
     /**
      * Конструктор для хоста
@@ -106,6 +122,7 @@ public class GameScene implements Initializable {
         this.nickname = nickname;
         this.manager = manager;
         this.currPack = pack;
+        users = new HashMap<>();
         server = new Server(8000, this);
         isServer = true;
         server.run();
@@ -122,6 +139,7 @@ public class GameScene implements Initializable {
     GameScene(String nickname, String host, int port, ControllersManager manager) {
         this.nickname = nickname;
         this.manager = manager;
+        users = new HashMap<>();
         client = new Client(port, host, this);
         isServer = false;
         client.run(nickname);
@@ -176,7 +194,7 @@ public class GameScene implements Initializable {
              */
             @Override
             public void handle(ActionEvent event) {
-                if (isPaused)
+                if (!isPaused && timeline != null)
                     stopTime();
                 server.shutdown();
                 manager.backToMenu();
@@ -186,20 +204,23 @@ public class GameScene implements Initializable {
         btnStart.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                server.writeHost("Start");
-                if (isPaused)
+                if (isPaused) {
+                    server.writeHost("Start");
                     continueTime();
-                else
+                } else if (timeline == null) {
+                    server.writeHost("Start");
                     doTime();
+                }
             }
         });
 
         btnStop.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                server.writeHost("Stop");
-                if (timeline != null)
+                if (timeline != null && !isPaused) {
+                    server.writeHost("Stop");
                     stopTime();
+                }
             }
         });
     }
@@ -235,6 +256,7 @@ public class GameScene implements Initializable {
              */
             @Override
             public void handle(ActionEvent event) {
+                client.outMessage(lblNickname.getText());
                 client.shutdown();
                 manager.backToMenu();
             }
@@ -302,15 +324,72 @@ public class GameScene implements Initializable {
 
     public void addUser(String nickname) {
 
+        User user;
+        if (isServer)
+            user = new User(new Image(Main.class.getResourceAsStream("../Images/User.png")), nickname);
+        else
+            user = new User(new Image(Main.class.getResourceAsStream("../Images/User.png")), nickname);
+
+        user.getBtnRight().setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                user.getBtnRight().setStyle("-fx-background-color: #0ce752; -fx-background-radius: 0 0 0 0;");
+                user.getBtnWrong().setStyle("-fx-background-color: #FB8122; -fx-background-radius: 0 0 0 0;");
+                server.writeHost("Right", user.getNickname());
+            }
+        });
+
+        user.getBtnWrong().setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                user.getBtnWrong().setStyle("-fx-background-color: #ee3d3d; -fx-background-radius: 0 0 0 0;");
+                user.getBtnRight().setStyle("-fx-background-color: #FB8122; -fx-background-radius: 0 0 0 0;");
+                server.writeHost("Wrong", user.getNickname());
+            }
+        });
+
+        users.put(nickname, user);
+
+        if (isServer) {
+            vboxUsers.getChildren().add(user.gethBox());
+        } else {
+            vboxUsersAndQuestions.getChildren().add(user.gethBox());
+        }
+    }
+
+    public void removeUser(String nickname) {
+
+        if (isServer) {
+            vboxUsers.getChildren().remove(users.remove(nickname).gethBox());
+        } else {
+            vboxUsersAndQuestions.getChildren().remove(users.remove(nickname).gethBox());
+        }
+    }
+
+    public Set<Map.Entry<String, User>> getUsersSet() {
+        return users.entrySet();
     }
 
     public void addQuestion(String question) {
         questionsCounter++;
 
-        if (isServer)
-            vboxQuestionsHost.getChildren().add(new Label(questionsCounter + ": " + question));
-        else
-            vboxQuestionsClient.getChildren().add(new Label(questionsCounter + ": " + question));
+        vboxQuestionsClient.getChildren().add(new Label(questionsCounter + ": " + question));
+    }
+
+    public void addQuestion(String question, String answer) {
+        questionsCounter++;
+
+        vboxQuestionsHost.getChildren().add(new Label(questionsCounter + ": " + question));
+        lblAnswer.setText(answer);
+    }
+
+    public void checkAnswer(String nickname, String answer) {
+
+    }
+
+    public void increaseScore() {
+        score++;
+        lblScore.setText("" + score);
     }
 
     /**
