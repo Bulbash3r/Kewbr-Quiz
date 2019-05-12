@@ -43,6 +43,7 @@ public class ConnectWindow implements Initializable {
     ConnectWindow(ControllersManager manager) {
         this.manager = manager;
         stage = new Stage();
+        stage.setResizable(false);
 
         try {
             FXMLLoader loader = new FXMLLoader(Main.class.getResource("View/ConnectWindow.fxml"));

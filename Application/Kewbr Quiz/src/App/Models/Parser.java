@@ -5,7 +5,7 @@ public class Parser {
     public static String[] parse(String message) {
         String[] strings;
 
-        if (message.substring(0, 3).equals("<M>") || message.substring(0, 3).equals("<A>") || message.substring(0, 3).equals("<I>"))
+        if (message.substring(0, 3).equals("<M>") || message.substring(0, 3).equals("<A>"))
             strings = new String[3];
         else
             strings = new String[2];
@@ -37,9 +37,7 @@ public class Parser {
 
             case "<I>":
                 strings[0] = "I";
-                message = message.substring(3);
-                strings[1] = message.split("<IN>")[0];
-                strings[2] = message.split("<IN>")[1];
+                strings[1] = message.substring(3);
                 break;
 
             case "<C>":
