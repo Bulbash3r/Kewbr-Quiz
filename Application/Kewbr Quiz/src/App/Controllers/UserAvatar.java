@@ -46,6 +46,7 @@ public class UserAvatar implements Initializable {
     public UserAvatar(ControllersManager manager){
         this.manager = manager;
         stage = new Stage();
+        stage.setResizable(false);
 
         //Ставим сами себя в качестве контроллера и загружаем fxml разметку на сцену
         try {

@@ -1,6 +1,7 @@
 package App.Controllers;
 
 import App.Main;
+import App.Models.Pack;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 
@@ -17,6 +18,8 @@ public class ControllersManager {
     private ConnectWindow connectWindow = null;
     private PackEditor packEditor = null;
     private GameScene gameScene = null;
+    private PackChoose packChoose = null;
+
     private Scene mainMenuScene = null;
     private Main main;
 
@@ -100,15 +103,19 @@ public class ControllersManager {
         }
     }
 
+    public void createPackChooseWindow() {
+        packChoose = new PackChoose(this);
+    }
+
     /**
      * Метод создания комнаты для игры
-     * @see GameScene#GameScene(String, ControllersManager)
+     * @see GameScene#GameScene(String, Pack, ControllersManager)
      */
-    void createGame() {
+    void createGame(Pack pack) {
         //Сохраняем сцену главного меню, чтобы потом не создавать её снова
         if (mainMenuScene == null)
             mainMenuScene = main.getPrStage().getScene();
-        gameScene = new GameScene(mainMenu.getNickname(), this);
+        gameScene = new GameScene(mainMenu.getNickname(), pack, this);
 
         try {
             FXMLLoader loader = new FXMLLoader(Main.class.getResource("View/GameScene.fxml"));

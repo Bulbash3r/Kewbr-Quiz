@@ -1,6 +1,7 @@
 package App.Controllers;
 
 import App.Models.Client;
+import App.Models.Pack;
 import App.Models.Server;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -93,15 +94,18 @@ public class GameScene implements Initializable {
     private int currentTime;
     private Timeline timeline;
 
+    private Pack currPack = null;
+
     /**
      * Конструктор для хоста
      * @param nickname -- никнейм игрока
      * @param manager -- ссылка на центральный контроллер
      * @see Server#run()
      */
-    GameScene(String nickname, ControllersManager manager) {
+    GameScene(String nickname, Pack pack, ControllersManager manager) {
         this.nickname = nickname;
         this.manager = manager;
+        this.currPack = pack;
         server = new Server(8000, this);
         isServer = true;
         server.run();

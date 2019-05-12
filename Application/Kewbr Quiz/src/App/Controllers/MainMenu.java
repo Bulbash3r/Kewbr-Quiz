@@ -65,7 +65,7 @@ public class MainMenu implements Initializable {
         btnCreateGame.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                manager.createGame();
+                manager.createPackChooseWindow();
             }
         });
 
