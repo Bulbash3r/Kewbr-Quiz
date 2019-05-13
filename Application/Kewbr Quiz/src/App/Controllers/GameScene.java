@@ -1,10 +1,7 @@
 package App.Controllers;
 
 import App.Main;
-import App.Models.Client;
-import App.Models.Pack;
-import App.Models.Server;
-import App.Models.User;
+import App.Models.*;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
@@ -111,6 +108,7 @@ public class GameScene implements Initializable {
 
     private Pack currPack = null;
     private Map<String, User> users;
+    private int voteCount = 0;
 
     /**
      * Конструктор для хоста
@@ -209,6 +207,7 @@ public class GameScene implements Initializable {
                     continueTime();
                 } else if (timeline == null) {
                     server.writeHost("Start");
+                    nextQuestion();
                     doTime();
                 }
             }
@@ -324,29 +323,44 @@ public class GameScene implements Initializable {
 
     public void addUser(String nickname) {
 
-        User user;
-        if (isServer)
-            user = new User(new Image(Main.class.getResourceAsStream("../Images/User.png")), nickname);
-        else
-            user = new User(new Image(Main.class.getResourceAsStream("../Images/User.png")), nickname);
+        User user = new User(manager.getMainMenu().getAvatarPic(), nickname, isServer);
 
-        user.getBtnRight().setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                user.getBtnRight().setStyle("-fx-background-color: #0ce752; -fx-background-radius: 0 0 0 0;");
-                user.getBtnWrong().setStyle("-fx-background-color: #FB8122; -fx-background-radius: 0 0 0 0;");
-                server.writeHost("Right", user.getNickname());
-            }
-        });
+        if (isServer) {
+            user.getBtnRight().setOnAction(new EventHandler<ActionEvent>() {
+                @Override
+                public void handle(ActionEvent event) {
+                    user.getBtnRight().setStyle("-fx-background-color: #0ce752; -fx-background-radius: 0 0 0 0;");
+                    user.getBtnWrong().setStyle("-fx-background-color: #FB8122; -fx-background-radius: 0 0 0 0;");
+                    user.getBtnRight().setDisable(true);
+                    user.getBtnWrong().setDisable(true);
 
-        user.getBtnWrong().setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                user.getBtnWrong().setStyle("-fx-background-color: #ee3d3d; -fx-background-radius: 0 0 0 0;");
-                user.getBtnRight().setStyle("-fx-background-color: #FB8122; -fx-background-radius: 0 0 0 0;");
-                server.writeHost("Wrong", user.getNickname());
-            }
-        });
+                    voteCount++;
+                    user.increaseScore();
+
+                    server.writeHost("Right", user.getNickname());
+
+                    if (voteCount == users.size())
+                        nextQuestion();
+                }
+            });
+
+            user.getBtnWrong().setOnAction(new EventHandler<ActionEvent>() {
+                @Override
+                public void handle(ActionEvent event) {
+                    user.getBtnWrong().setStyle("-fx-background-color: #ee3d3d; -fx-background-radius: 0 0 0 0;");
+                    user.getBtnRight().setStyle("-fx-background-color: #FB8122; -fx-background-radius: 0 0 0 0;");
+                    user.getBtnRight().setDisable(true);
+                    user.getBtnWrong().setDisable(true);
+
+                    voteCount++;
+
+                    server.writeHost("Wrong", user.getNickname());
+
+                    if (voteCount == users.size())
+                        nextQuestion();
+                }
+            });
+        }
 
         users.put(nickname, user);
 
@@ -370,21 +384,47 @@ public class GameScene implements Initializable {
         return users.entrySet();
     }
 
+    private void nextQuestion() {
+
+        Question currQuestion = currPack.getQuestions().get(questionsCounter);
+
+        addQuestion(currQuestion.getQuestion(), currQuestion.getAnswer());
+
+        server.writeQuestion(currQuestion.getQuestion());
+    }
+
     public void addQuestion(String question) {
         questionsCounter++;
+        voteCount = 0;
 
         vboxQuestionsClient.getChildren().add(new Label(questionsCounter + ": " + question));
     }
 
     public void addQuestion(String question, String answer) {
         questionsCounter++;
+        voteCount = 0;
+
+        for (Map.Entry<String, User> entry : users.entrySet())
+            entry.getValue().resetButtons();
 
         vboxQuestionsHost.getChildren().add(new Label(questionsCounter + ": " + question));
         lblAnswer.setText(answer);
     }
 
-    public void checkAnswer(String nickname, String answer) {
+    public void checkAnswer(String nickname, String answer, boolean isServer) {
 
+         if (isServer) {
+             users.get(nickname).setAnswer(answer);
+             return;
+         }
+
+        if (answer.equals("Right")) {
+
+            if (nickname.equals(lblNickname.getText()))
+                increaseScore();
+            else
+                users.get(nickname).increaseScore();
+        }
     }
 
     public void increaseScore() {

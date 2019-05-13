@@ -3,7 +3,9 @@
     <output-path>$PROJECT_DIR$/out/artifacts/Kewbr_Quiz_jar</output-path>
     <root id="archive" name="Kewbr Quiz.jar">
       <element id="module-output" name="Kewbr Quiz" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/Libs/gson-2.8.5.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$PROJECT_DIR$/Libs/netty-all-4.1.33.Final.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/Libs/testng-6.0.jar" path-in-jar="/" />
     </root>
   </artifact>
 </component>

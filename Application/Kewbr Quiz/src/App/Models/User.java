@@ -28,7 +28,7 @@ public class User {
 
     private int score = 0;
 
-    public User(Image avatar, String nickname) {
+    public User(Image avatar, String nickname, boolean isServer) {
 
         imgvAvatar = new ImageView(avatar);
         imgvAvatar.setSmooth(true);
@@ -43,32 +43,48 @@ public class User {
         lblAnswer.setFont(Font.font("System Bold"));
         lblAnswer.setTextFill(Paint.valueOf("#e1e2e2"));
 
-        lblScore = new Label();
+        lblScore = new Label("0");
         lblScore.setFont(Font.font("System Bold"));
         lblScore.setTextFill(Paint.valueOf("#e1e2e2"));
 
-        btnRight = new Button("V");
-        btnRight.prefHeight(25);
-        btnRight.prefWidth(25);
-        btnRight.setStyle("-fx-background-color: #FB8122; -fx-background-radius: 0 0 0 0;");
-        btnRight.setFont(Font.font("System Bold"));
-        btnRight.setTextFill(Paint.valueOf("#e1e2e2"));
+        if (isServer) {
 
-        btnWrong = new Button("X");
-        btnWrong.prefHeight(25);
-        btnWrong.prefWidth(25);
-        btnWrong.setStyle("-fx-background-color: #FB8122; -fx-background-radius: 0 0 0 0;");
-        btnWrong.setFont(Font.font("System Bold"));
-        btnWrong.setTextFill(Paint.valueOf("#e1e2e2"));
+            btnRight = new Button("V");
+            btnRight.prefHeight(25);
+            btnRight.prefWidth(25);
+            btnRight.setStyle("-fx-background-color: #FB8122; -fx-background-radius: 0 0 0 0;");
+            btnRight.setFont(Font.font("System Bold"));
+            btnRight.setTextFill(Paint.valueOf("#e1e2e2"));
 
-        hBoxButtons = new HBox(5);
-        hBoxButtons.getChildren().addAll(btnWrong, btnRight);
-        hBoxButtons.setAlignment(Pos.CENTER);
+            btnWrong = new Button("X");
+            btnWrong.prefHeight(25);
+            btnWrong.prefWidth(25);
+            btnWrong.setStyle("-fx-background-color: #FB8122; -fx-background-radius: 0 0 0 0;");
+            btnWrong.setFont(Font.font("System Bold"));
+            btnWrong.setTextFill(Paint.valueOf("#e1e2e2"));
+
+            hBoxButtons = new HBox(5);
+            hBoxButtons.getChildren().addAll(btnWrong, btnRight);
+            hBoxButtons.setAlignment(Pos.CENTER);
+        }
 
         hBox = new HBox(10);
         hBox.setAlignment(Pos.CENTER_LEFT);
-        hBox.getChildren().addAll(imgvAvatar, lblNickname, hBoxButtons, lblAnswer);
-        hBoxButtons.setAlignment(Pos.CENTER_LEFT);
+
+        if (isServer) {
+            hBox.getChildren().addAll(imgvAvatar, lblNickname, hBoxButtons, lblAnswer, lblScore);
+            hBoxButtons.setAlignment(Pos.CENTER_LEFT);
+        }
+        else
+            hBox.getChildren().addAll(imgvAvatar, lblNickname, lblAnswer, lblScore);
+    }
+
+    public void resetButtons() {
+
+        btnRight.setStyle("-fx-background-color: #FB8122; -fx-background-radius: 0 0 0 0;");
+        btnWrong.setStyle("-fx-background-color: #FB8122; -fx-background-radius: 0 0 0 0;");
+        btnRight.setDisable(false);
+        btnWrong.setDisable(false);
     }
 
     public HBox gethBox() {

@@ -96,6 +96,11 @@ public class Server {
         });
     }
 
+    public void writeQuestion(String question) {
+        for (Channel c : ServerHandler.getChannels())
+            c.writeAndFlush("<Q>" + question + "\r\n");
+    }
+
     public void writeHost(String cmd) {
         for (Channel c : ServerHandler.getChannels())
             c.writeAndFlush("<H>" + cmd + "\r\n");
@@ -103,7 +108,7 @@ public class Server {
 
     public void writeHost(String cmd, String nickname) {
         for (Channel c : ServerHandler.getChannels())
-            c.writeAndFlush("<H>" + cmd + "\r\n");
+            c.writeAndFlush("<HA>" + nickname + "</HN>" + cmd + "\r\n");
     }
 }
 
@@ -232,7 +237,7 @@ class ServerHandler extends SimpleChannelInboundHandler <String> {
                 Platform.runLater(new Runnable() {
                     @Override
                     public void run() {
-                        gameScene.checkAnswer(strings[1], strings[2]);
+                        gameScene.checkAnswer(strings[1], strings[2], true);
                     }
                 });
                 break;

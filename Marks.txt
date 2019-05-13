@@ -5,5 +5,6 @@
 <H>Stop				Stop game
 <HA>Nickname</HN>Right		Right answer
 <HA>Nickname</HN>Wrong		Wrong answer
-<I>Nickname			Nickname in
+<I>Nickname</IN>Score		Nickname in
 <O>Nickname			Nickname out
+

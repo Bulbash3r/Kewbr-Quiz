@@ -35,7 +35,7 @@ public class Parser {
                 strings[1] = message.substring(3);
                 break;
 
-            case "<HA>":
+            case "<HA":
                 strings[0] = "HA";
                 message = message.substring(4);
                 strings[1] = message.split("</HN>")[0];

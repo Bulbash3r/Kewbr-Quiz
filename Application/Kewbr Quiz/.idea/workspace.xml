@@ -2,18 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8817ad18-5098-4ea7-8c26-648451a8414f" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/../Directory.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../Directory.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/netty_all_4_1_33_Final.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/Kewbr_Quiz_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/Kewbr_Quiz_jar.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Kewbr Quiz.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Kewbr Quiz.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App/Controllers/GameScene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/App/Controllers/GameScene.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App/Controllers/PackChoose.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/App/Controllers/PackChoose.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App/Controllers/PackEditor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/App/Controllers/PackEditor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/App/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App/Models/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/App/Models/Client.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App/Models/Parser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/App/Models/Parser.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App/Models/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/App/Models/Server.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App/Models/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/App/Models/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App/View/GameScene.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/App/View/GameScene.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App/View/PackChoose.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/App/View/PackChoose.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App/View/UserAvatar.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/App/View/UserAvatar.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App/View/PackEditor.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/App/View/PackEditor.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Test.kwq" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../../Marks.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../../Marks.txt" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -28,43 +31,24 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/App/Controllers/ControllersManager.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="416">
-              <caret line="106" column="32" selection-start-line="106" selection-start-column="32" selection-end-line="106" selection-end-column="32" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/App/Controllers/GameScene.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="603">
-              <caret line="378" column="60" selection-start-line="378" selection-start-column="60" selection-end-line="378" selection-end-column="60" />
+            <state relative-caret-position="229">
+              <caret line="414" lean-forward="true" selection-start-line="414" selection-end-line="414" />
               <folding>
-                <element signature="e#3067#3278#0" />
-                <element signature="e#6659#7098#0" />
-                <element signature="e#7104#8139#0" />
-                <element signature="e#8231#8316#0" />
-                <element signature="e#10555#10556#0" expanded="true" />
-                <element signature="e#10594#10595#0" expanded="true" />
-                <element signature="e#10138#10228#0" />
-                <element signature="e#11288#11289#0" expanded="true" />
-                <element signature="e#11332#11333#0" expanded="true" />
-                <element signature="e#11365#11366#0" expanded="true" />
-                <element signature="e#11396#11397#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/App/Controllers/PackChoose.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="612">
-              <caret line="88" column="13" selection-start-line="88" selection-start-column="13" selection-end-line="88" selection-end-column="13" />
-              <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="e#2494#2953#0" />
+                <element signature="e#2959#3500#0" />
+                <element signature="e#3506#3717#0" />
+                <element signature="e#6028#7305#0" />
+                <element signature="e#7311#7750#0" />
+                <element signature="e#7756#8791#0" />
+                <element signature="e#8797#8877#0" />
+                <element signature="e#8883#8968#0" />
+                <element signature="e#10789#11056#0" />
+                <element signature="e#11065#11105#1" />
+                <element signature="e#11217#11218#0" expanded="true" />
+                <element signature="e#12702#12703#0" expanded="true" />
+                <element signature="e#12766#12767#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -73,27 +57,45 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/App/Models/Client.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="291">
-              <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
+            <state relative-caret-position="134">
+              <caret line="144" column="36" selection-start-line="144" selection-start-column="36" selection-end-line="144" selection-end-column="36" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#Client#0;class#Client#0" />
-                <element signature="e#1626#1627#0" expanded="true" />
-                <element signature="e#1689#1690#0" expanded="true" />
-                <element signature="e#1726#1727#0" expanded="true" />
-                <element signature="e#1768#1769#0" expanded="true" />
-                <element signature="e#2235#2236#0" expanded="true" />
-                <element signature="e#2330#2331#0" expanded="true" />
-                <element signature="e#2552#2553#0" expanded="true" />
-                <element signature="e#2594#2595#0" expanded="true" />
-                <element signature="e#3496#3497#0" expanded="true" />
-                <element signature="e#3538#3539#0" expanded="true" />
-                <element signature="e#4204#4205#0" expanded="true" />
-                <element signature="e#4305#4306#0" expanded="true" />
-                <element signature="e#4492#4493#0" expanded="true" />
-                <element signature="e#4573#4574#0" expanded="true" />
-                <element signature="e#6032#6033#0" expanded="true" />
-                <element signature="e#6103#6104#0" expanded="true" />
+                <element signature="e#4493#4494#0" expanded="true" />
+                <element signature="e#4574#4575#0" expanded="true" />
+                <element signature="e#6033#6034#0" expanded="true" />
+                <element signature="e#6126#6127#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/App/Models/Parser.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="365">
+              <caret line="37" column="21" selection-start-line="37" selection-start-column="21" selection-end-line="37" selection-end-column="21" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/App/Models/User.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="238">
+              <caret line="45" column="32" selection-start-line="45" selection-start-column="32" selection-end-line="45" selection-end-column="32" />
+              <folding>
+                <element signature="e#2650#2651#0" expanded="true" />
+                <element signature="e#2677#2678#0" expanded="true" />
+                <element signature="e#2721#2722#0" expanded="true" />
+                <element signature="e#2762#2763#0" expanded="true" />
+                <element signature="e#2797#2798#0" expanded="true" />
+                <element signature="e#2828#2829#0" expanded="true" />
+                <element signature="e#2863#2864#0" expanded="true" />
+                <element signature="e#2894#2895#0" expanded="true" />
+                <element signature="e#2929#2930#0" expanded="true" />
+                <element signature="e#2973#2974#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -102,31 +104,30 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/App/Models/Server.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="442">
-              <caret line="248" selection-start-line="248" selection-end-line="248" />
+            <state relative-caret-position="459">
+              <caret line="110" column="62" selection-start-line="110" selection-start-column="62" selection-end-line="110" selection-end-column="62" />
               <folding>
-                <element signature="e#2736#2737#0" expanded="true" />
-                <element signature="e#2831#2832#0" expanded="true" />
-                <element signature="e#3313#3314#0" expanded="true" />
-                <element signature="e#3355#3356#0" expanded="true" />
-                <element signature="e#4374#4375#0" expanded="true" />
-                <element signature="e#4416#4417#0" expanded="true" />
-                <element signature="e#6877#6878#0" expanded="true" />
-                <element signature="e#6987#6988#0" expanded="true" />
-                <element signature="e#7174#7175#0" expanded="true" />
-                <element signature="e#7230#7231#0" expanded="true" />
-                <element signature="e#8743#8744#0" expanded="true" />
-                <element signature="e#8774#8775#0" expanded="true" />
+                <element signature="e#7226#7227#0" expanded="true" />
+                <element signature="e#7319#7320#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/App/Controllers/ConnectWindow.java">
+        <entry file="file://$PROJECT_DIR$/src/App/Controllers/QuestionWindow.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="442">
-              <caret line="26" column="39" lean-forward="true" selection-start-line="26" selection-start-column="39" selection-end-line="26" selection-end-column="39" />
+            <state relative-caret-position="68">
+              <caret line="28" column="13" selection-start-line="28" selection-start-column="13" selection-end-line="28" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/App/Controllers/PackChoose.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="333">
+              <caret line="54" column="42" selection-start-line="54" selection-start-column="42" selection-end-line="54" selection-end-column="42" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -134,55 +135,32 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/App/Controllers/UserAvatar.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="340">
+              <caret line="110" column="54" lean-forward="true" selection-start-line="110" selection-start-column="54" selection-end-line="110" selection-end-column="54" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/App/View/UserAvatar.fxml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="2" column="30" selection-start-line="2" selection-start-column="30" selection-end-line="2" selection-end-column="30" />
-            </state>
-          </provider>
           <provider editor-type-id="JavaFX-Scene-Builder" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/App/Models/User.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="30" column="45" selection-start-line="30" selection-start-column="45" selection-end-line="30" selection-end-column="45" />
-              <folding>
-                <element signature="e#2410#2411#0" expanded="true" />
-                <element signature="e#2437#2438#0" expanded="true" />
-                <element signature="e#2481#2482#0" expanded="true" />
-                <element signature="e#2522#2523#0" expanded="true" />
-                <element signature="e#2557#2558#0" expanded="true" />
-                <element signature="e#2588#2589#0" expanded="true" />
-                <element signature="e#2623#2624#0" expanded="true" />
-                <element signature="e#2654#2655#0" expanded="true" />
-                <element signature="e#2689#2690#0" expanded="true" />
-                <element signature="e#2733#2734#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="255">
+              <caret line="15" column="57" selection-start-line="15" selection-start-column="57" selection-end-line="15" selection-end-column="57" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/App/View/GameScene.fxml">
+        <entry file="file://$PROJECT_DIR$/src/App/Controllers/MainMenu.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="290">
-              <caret line="104" column="31" selection-start-line="104" selection-start-column="31" selection-end-line="104" selection-end-column="31" />
+            <state relative-caret-position="680">
+              <caret line="65" column="7" selection-start-line="65" selection-start-column="7" selection-end-line="65" selection-end-column="7" />
             </state>
           </provider>
-          <provider editor-type-id="JavaFX-Scene-Builder" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/App/View/PackChoose.fxml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="408">
-              <caret line="24" column="13" lean-forward="true" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
-            </state>
-          </provider>
-          <provider editor-type-id="JavaFX-Scene-Builder" />
         </entry>
       </file>
     </leaf>
@@ -212,6 +190,8 @@
       <find>image</find>
       <find>btnex</find>
       <find>vboxu</find>
+      <find>Directory.txt</find>
+      <find>User.pn</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -223,25 +203,27 @@
         <option value="$PROJECT_DIR$/src/App/View/GameScene.fxml" />
         <option value="$PROJECT_DIR$/src/App/Controllers/ConnectWindow.java" />
         <option value="$PROJECT_DIR$/src/App/Controllers/UserAvatar.java" />
-        <option value="$PROJECT_DIR$/src/App/Controllers/PackEditor.java" />
         <option value="$PROJECT_DIR$/src/App/Controllers/ControllersManager.java" />
         <option value="$PROJECT_DIR$/src/App/Controllers/MainMenu.java" />
-        <option value="$PROJECT_DIR$/src/App/Models/Client.java" />
         <option value="$PROJECT_DIR$/src/App/Models/Main2.java" />
         <option value="$PROJECT_DIR$/src/App/View/PackChoose.fxml" />
-        <option value="$PROJECT_DIR$/src/App/Models/Parser.java" />
-        <option value="$PROJECT_DIR$/src/App/Models/Server.java" />
-        <option value="$PROJECT_DIR$/src/App/Models/User.java" />
-        <option value="$PROJECT_DIR$/src/App/Controllers/GameScene.java" />
-        <option value="$PROJECT_DIR$/src/App/Controllers/PackChoose.java" />
         <option value="$PROJECT_DIR$/src/App/View/UserAvatar.fxml" />
+        <option value="$PROJECT_DIR$/src/App/Main.java" />
+        <option value="$PROJECT_DIR$/src/App/View/PackEditor.fxml" />
+        <option value="$PROJECT_DIR$/src/App/Controllers/PackEditor.java" />
+        <option value="$PROJECT_DIR$/src/App/Controllers/PackChoose.java" />
+        <option value="$PROJECT_DIR$/src/App/Models/Client.java" />
+        <option value="$PROJECT_DIR$/src/App/Controllers/GameScene.java" />
+        <option value="$PROJECT_DIR$/src/App/Models/User.java" />
+        <option value="$PROJECT_DIR$/src/App/Models/Server.java" />
+        <option value="$PROJECT_DIR$/src/App/Models/Parser.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="953" />
+    <option name="x" value="946" />
     <option name="width" value="974" />
-    <option name="height" value="1047" />
+    <option name="height" value="1040" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -303,12 +285,6 @@
               <item name="App" type="462c0819:PsiDirectoryNode" />
               <item name="View" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="Kewbr Quiz" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Kewbr Quiz" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Images" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -323,7 +299,7 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/Libs/testng-6.0.jar!/" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
   </component>
@@ -426,16 +402,18 @@
       <workItem from="1557585678298" duration="56000" />
       <workItem from="1557589136251" duration="21019000" />
       <workItem from="1557672041839" duration="14612000" />
+      <workItem from="1557775320102" duration="6492000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="35710000" />
+    <option name="totallyTimeSpent" value="43500000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2553305" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.15511727" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -444,7 +422,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32936078" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32936078" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3997833" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -475,10 +453,10 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/App/Models/Client.java</url>
-          <line>189</line>
+          <url>file://$PROJECT_DIR$/src/App/Controllers/GameScene.java</url>
+          <line>415</line>
           <properties />
-          <option name="timeStamp" value="10" />
+          <option name="timeStamp" value="12" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -500,22 +478,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/App/View/PackEditor.fxml">
-      <provider selected="true" editor-type-id="text-editor" />
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/App/View/ConnectWindow.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="340">
           <caret line="20" column="85" selection-start-line="20" selection-start-column="55" selection-end-line="20" selection-end-column="85" />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/App/Controllers/QuestionWindow.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="28" column="13" selection-start-line="28" selection-start-column="13" selection-end-line="28" selection-end-column="13" />
         </state>
       </provider>
     </entry>
@@ -523,13 +490,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="7361">
           <caret line="486" column="17" selection-start-line="486" selection-start-column="17" selection-end-line="486" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/App/Controllers/MainMenu.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="782">
-          <caret line="65" column="7" selection-start-line="65" selection-start-column="7" selection-end-line="65" selection-end-column="7" />
         </state>
       </provider>
     </entry>
@@ -547,33 +507,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/App/Controllers/UserAvatar.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="281">
-          <caret line="121" column="47" selection-start-line="121" selection-start-column="42" selection-end-line="121" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/App/Controllers/PackEditor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="312">
-          <caret line="213" column="57" selection-start-line="213" selection-start-column="57" selection-end-line="213" selection-end-column="57" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#editorInit#0;class#PackEditor#0" />
-            <element signature="method#choose#0;class#PackEditor#0" />
-            <element signature="method#savePath#0;class#PackEditor#0" />
-            <element signature="method#update#0;class#PackEditor#0" />
-            <element signature="method#openEditor#0;class#PackEditor#0" />
-            <element signature="method#openEditor#1;class#PackEditor#0" />
-            <element signature="method#openLauncher#0;class#PackEditor#0" />
-            <element signature="method#insertQuestionWindow#0;class#PackEditor#0" />
-            <element signature="method#saveQuestion#0;class#PackEditor#0" />
-            <element signature="method#insertQuestion#0;class#PackEditor#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Programs/JDK/src.zip!/java/util/Map.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="452">
@@ -588,156 +521,27 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/App/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="595">
-          <caret line="53" column="9" selection-start-line="53" selection-start-column="9" selection-end-line="53" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/App/Models/Main2.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="10" lean-forward="true" selection-start-line="11" selection-start-column="10" selection-end-line="11" selection-end-column="10" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#263#264#0" expanded="true" />
-            <element signature="e#287#288#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/App/Models/Main2.java" />
     <entry file="file://$PROJECT_DIR$/src/App/View/MainMenu.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
           <caret line="14" column="136" selection-start-line="14" selection-start-column="136" selection-end-line="14" selection-end-column="136" />
         </state>
       </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/App/Models/Parser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="53" selection-start-line="53" selection-end-line="53" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/App/Models/User.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="30" column="45" selection-start-line="30" selection-start-column="45" selection-end-line="30" selection-end-column="45" />
-          <folding>
-            <element signature="e#2410#2411#0" expanded="true" />
-            <element signature="e#2437#2438#0" expanded="true" />
-            <element signature="e#2481#2482#0" expanded="true" />
-            <element signature="e#2522#2523#0" expanded="true" />
-            <element signature="e#2557#2558#0" expanded="true" />
-            <element signature="e#2588#2589#0" expanded="true" />
-            <element signature="e#2623#2624#0" expanded="true" />
-            <element signature="e#2654#2655#0" expanded="true" />
-            <element signature="e#2689#2690#0" expanded="true" />
-            <element signature="e#2733#2734#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/App/View/GameScene.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="290">
           <caret line="104" column="31" selection-start-line="104" selection-start-column="31" selection-end-line="104" selection-end-column="31" />
         </state>
       </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/App/Models/Server.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="248" selection-start-line="248" selection-end-line="248" />
-          <folding>
-            <element signature="e#2736#2737#0" expanded="true" />
-            <element signature="e#2831#2832#0" expanded="true" />
-            <element signature="e#3313#3314#0" expanded="true" />
-            <element signature="e#3355#3356#0" expanded="true" />
-            <element signature="e#4374#4375#0" expanded="true" />
-            <element signature="e#4416#4417#0" expanded="true" />
-            <element signature="e#6877#6878#0" expanded="true" />
-            <element signature="e#6987#6988#0" expanded="true" />
-            <element signature="e#7174#7175#0" expanded="true" />
-            <element signature="e#7230#7231#0" expanded="true" />
-            <element signature="e#8743#8744#0" expanded="true" />
-            <element signature="e#8774#8775#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/App/Controllers/GameScene.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="603">
-          <caret line="378" column="60" selection-start-line="378" selection-start-column="60" selection-end-line="378" selection-end-column="60" />
-          <folding>
-            <element signature="e#3067#3278#0" />
-            <element signature="e#6659#7098#0" />
-            <element signature="e#7104#8139#0" />
-            <element signature="e#8231#8316#0" />
-            <element signature="e#10555#10556#0" expanded="true" />
-            <element signature="e#10594#10595#0" expanded="true" />
-            <element signature="e#10138#10228#0" />
-            <element signature="e#11288#11289#0" expanded="true" />
-            <element signature="e#11332#11333#0" expanded="true" />
-            <element signature="e#11365#11366#0" expanded="true" />
-            <element signature="e#11396#11397#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/App/Models/Client.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="291">
-          <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#Client#0;class#Client#0" />
-            <element signature="e#1626#1627#0" expanded="true" />
-            <element signature="e#1689#1690#0" expanded="true" />
-            <element signature="e#1726#1727#0" expanded="true" />
-            <element signature="e#1768#1769#0" expanded="true" />
-            <element signature="e#2235#2236#0" expanded="true" />
-            <element signature="e#2330#2331#0" expanded="true" />
-            <element signature="e#2552#2553#0" expanded="true" />
-            <element signature="e#2594#2595#0" expanded="true" />
-            <element signature="e#3496#3497#0" expanded="true" />
-            <element signature="e#3538#3539#0" expanded="true" />
-            <element signature="e#4204#4205#0" expanded="true" />
-            <element signature="e#4305#4306#0" expanded="true" />
-            <element signature="e#4492#4493#0" expanded="true" />
-            <element signature="e#4573#4574#0" expanded="true" />
-            <element signature="e#6032#6033#0" expanded="true" />
-            <element signature="e#6103#6104#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/App/Controllers/ControllersManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="416">
-          <caret line="106" column="32" selection-start-line="106" selection-start-column="32" selection-end-line="106" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/App/Controllers/PackChoose.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="612">
-          <caret line="88" column="13" selection-start-line="88" selection-start-column="13" selection-end-line="88" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/App/Controllers/ConnectWindow.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="26" column="39" lean-forward="true" selection-start-line="26" selection-start-column="39" selection-end-line="26" selection-end-column="39" />
+        <state relative-caret-position="187">
+          <caret line="26" column="39" selection-start-line="26" selection-start-column="39" selection-end-line="26" selection-end-column="39" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -745,20 +549,176 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/App/View/PackChoose.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="408">
-          <caret line="24" column="13" lean-forward="true" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
+          <caret line="24" column="13" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/App/Controllers/ControllersManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="331">
+          <caret line="100" column="33" selection-start-line="100" selection-start-column="33" selection-end-line="100" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/App/View/PackEditor.fxml">
       <provider editor-type-id="JavaFX-Scene-Builder" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" selection-start-line="1" selection-end-line="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/META-INF/MANIFEST.MF">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/App/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="31" column="10" selection-start-line="31" selection-start-column="10" selection-end-line="31" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Directory.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/App/Controllers/PackEditor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="317">
+          <caret line="243" column="64" selection-start-line="243" selection-start-column="64" selection-end-line="243" selection-end-column="64" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#editorInit#0;class#PackEditor#0" />
+            <element signature="method#choose#0;class#PackEditor#0" />
+            <element signature="method#update#0;class#PackEditor#0" />
+            <element signature="method#openEditor#0;class#PackEditor#0" />
+            <element signature="method#openEditor#1;class#PackEditor#0" />
+            <element signature="method#openLauncher#0;class#PackEditor#0" />
+            <element signature="method#insertQuestionWindow#0;class#PackEditor#0" />
+            <element signature="method#saveQuestion#0;class#PackEditor#0" />
+            <element signature="method#insertQuestion#0;class#PackEditor#0" />
+          </folding>
+        </state>
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/App/View/UserAvatar.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder" />
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="30" selection-start-line="2" selection-start-column="30" selection-end-line="2" selection-end-column="30" />
+        <state relative-caret-position="255">
+          <caret line="15" column="57" selection-start-line="15" selection-start-column="57" selection-end-line="15" selection-end-column="57" />
         </state>
       </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/App/Controllers/UserAvatar.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="110" column="54" lean-forward="true" selection-start-line="110" selection-start-column="54" selection-end-line="110" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/App/Controllers/MainMenu.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="680">
+          <caret line="65" column="7" selection-start-line="65" selection-start-column="7" selection-end-line="65" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/App/Controllers/QuestionWindow.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="28" column="13" selection-start-line="28" selection-start-column="13" selection-end-line="28" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/App/Controllers/PackChoose.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="333">
+          <caret line="54" column="42" selection-start-line="54" selection-start-column="42" selection-end-line="54" selection-end-column="42" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/App/Models/User.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="45" column="32" selection-start-line="45" selection-start-column="32" selection-end-line="45" selection-end-column="32" />
+          <folding>
+            <element signature="e#2650#2651#0" expanded="true" />
+            <element signature="e#2677#2678#0" expanded="true" />
+            <element signature="e#2721#2722#0" expanded="true" />
+            <element signature="e#2762#2763#0" expanded="true" />
+            <element signature="e#2797#2798#0" expanded="true" />
+            <element signature="e#2828#2829#0" expanded="true" />
+            <element signature="e#2863#2864#0" expanded="true" />
+            <element signature="e#2894#2895#0" expanded="true" />
+            <element signature="e#2929#2930#0" expanded="true" />
+            <element signature="e#2973#2974#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/App/Models/Server.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="110" column="62" selection-start-line="110" selection-start-column="62" selection-end-line="110" selection-end-column="62" />
+          <folding>
+            <element signature="e#7226#7227#0" expanded="true" />
+            <element signature="e#7319#7320#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/App/Controllers/GameScene.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="229">
+          <caret line="414" lean-forward="true" selection-start-line="414" selection-end-line="414" />
+          <folding>
+            <element signature="e#2494#2953#0" />
+            <element signature="e#2959#3500#0" />
+            <element signature="e#3506#3717#0" />
+            <element signature="e#6028#7305#0" />
+            <element signature="e#7311#7750#0" />
+            <element signature="e#7756#8791#0" />
+            <element signature="e#8797#8877#0" />
+            <element signature="e#8883#8968#0" />
+            <element signature="e#10789#11056#0" />
+            <element signature="e#11065#11105#1" />
+            <element signature="e#11217#11218#0" expanded="true" />
+            <element signature="e#12702#12703#0" expanded="true" />
+            <element signature="e#12766#12767#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/App/Models/Client.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="134">
+          <caret line="144" column="36" selection-start-line="144" selection-start-column="36" selection-end-line="144" selection-end-column="36" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#Client#0;class#Client#0" />
+            <element signature="e#4493#4494#0" expanded="true" />
+            <element signature="e#4574#4575#0" expanded="true" />
+            <element signature="e#6033#6034#0" expanded="true" />
+            <element signature="e#6126#6127#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/App/Models/Parser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="365">
+          <caret line="37" column="21" selection-start-line="37" selection-start-column="21" selection-end-line="37" selection-end-column="21" />
+        </state>
+      </provider>
     </entry>
   </component>
   <component name="masterDetails">
@@ -802,6 +762,7 @@
       </state>
       <state key="JdkListConfigurable.UI">
         <settings>
+          <last-edited>1.8</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>

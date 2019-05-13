@@ -207,7 +207,7 @@ class ClientHandler extends SimpleChannelInboundHandler<String> {
                 Platform.runLater(new Runnable() {
                     @Override
                     public void run() {
-                        gameScene.checkAnswer(strings[1], strings[2]);
+                        gameScene.checkAnswer(strings[1], strings[2], false);
                     }
                 });
                 break;

@@ -3,7 +3,7 @@ package App;
 import App.Controllers.ControllersManager;
 import App.Models.Pack;
 import App.Models.Parser;
-import com.google.gson.Gson;
+//import com.google.gson.Gson;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -30,7 +30,7 @@ public class Main extends Application {
     private ControllersManager manager;
 
     @Override
-    public void start(Stage prStage) throws Exception {
+    public void start(Stage prStage) {
         this.prStage = prStage;
         prStage.setTitle("KEWBR Quiz");
 
