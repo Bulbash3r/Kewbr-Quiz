@@ -17,6 +17,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.io.File;
@@ -46,6 +47,10 @@ public class UserAvatar implements Initializable {
     public UserAvatar(ControllersManager manager){
         this.manager = manager;
         stage = new Stage();
+        stage.setTitle("Profile window");
+        stage.initModality(Modality.WINDOW_MODAL);
+        stage.initOwner(manager.getMainMenu().getStage().getScene().getWindow());
+        stage.getIcons().add(new Image("Images/icon.png"));
         stage.setResizable(false);
 
         //Ставим сами себя в качестве контроллера и загружаем fxml разметку на сцену

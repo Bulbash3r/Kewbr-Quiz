@@ -7,6 +7,7 @@ import App.Models.Parser;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
@@ -33,6 +34,8 @@ public class Main extends Application {
     public void start(Stage prStage) {
         this.prStage = prStage;
         prStage.setTitle("KEWBR Quiz");
+        prStage.getIcons().add(new Image("Images/icon.png"));
+        prStage.setResizable(false);
 
         manager = new ControllersManager(this);
 

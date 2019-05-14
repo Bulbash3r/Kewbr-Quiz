@@ -11,6 +11,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -43,6 +45,10 @@ public class ConnectWindow implements Initializable {
     ConnectWindow(ControllersManager manager) {
         this.manager = manager;
         stage = new Stage();
+        stage.setTitle("Connect Window");
+        stage.initModality(Modality.WINDOW_MODAL);
+        stage.initOwner(manager.getMainMenu().getStage().getScene().getWindow());
+        stage.getIcons().add(new Image("Images/icon.png"));
         stage.setResizable(false);
 
         try {

@@ -25,7 +25,6 @@ public class MainMenu implements Initializable {
 
     private @FXML Button btnJoinGame;
     private @FXML Button btnCreateGame;
-    private @FXML Button btnSettings;
     private @FXML Button btnExit;
     private @FXML Button btnPackEditor;
 

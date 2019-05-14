@@ -15,6 +15,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Paint;
 import javafx.scene.text.Font;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -39,6 +40,9 @@ public class WinnersWindow implements Initializable {
         this.manager = manager;
 
         stage = new Stage();
+        stage.initModality(Modality.WINDOW_MODAL);
+        stage.initOwner(manager.getMainMenu().getStage().getScene().getWindow());
+        stage.getIcons().add(new Image("Images/icon.png"));
         stage.setResizable(false);
 
         try {

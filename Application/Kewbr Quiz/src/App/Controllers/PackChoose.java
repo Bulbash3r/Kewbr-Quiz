@@ -11,7 +11,9 @@ import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.stage.FileChooser;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.io.File;
@@ -42,6 +44,9 @@ public class PackChoose implements Initializable {
 
         stage = new Stage();
         stage.setTitle("Pack Chooser");
+        stage.initModality(Modality.WINDOW_MODAL);
+        stage.initOwner(manager.getMainMenu().getStage().getScene().getWindow());
+        stage.getIcons().add(new Image("Images/icon.png"));
         stage.setResizable(false);
 
         try {

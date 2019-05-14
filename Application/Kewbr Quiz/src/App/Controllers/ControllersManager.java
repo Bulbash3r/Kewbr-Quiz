@@ -19,6 +19,7 @@ public class ControllersManager {
     private PackEditor packEditor = null;
     private GameScene gameScene = null;
     private PackChoose packChoose = null;
+    private WinnersWindow winnersWindow = null;
 
     private Scene mainMenuScene = null;
     private Main main;
@@ -79,6 +80,9 @@ public class ControllersManager {
      * Метод, вызывающийся для возврата в главное меню
      */
     void backToMenu() {
+
+        gameScene = null;
+        winnersWindow = null;
         main.getPrStage().setScene(mainMenuScene);
     }
 
@@ -111,7 +115,7 @@ public class ControllersManager {
      * Метод создания комнаты для игры
      * @see GameScene#GameScene(String, Pack, ControllersManager)
      */
-    void createGame(Pack pack) {
+    public void createGame(Pack pack) {
         //Сохраняем сцену главного меню, чтобы потом не создавать её снова
         if (mainMenuScene == null)
             mainMenuScene = main.getPrStage().getScene();
@@ -124,5 +128,9 @@ public class ControllersManager {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public void createWinnersWindow(String[] winners) {
+        winnersWindow = new WinnersWindow(winners, this);
     }
 }

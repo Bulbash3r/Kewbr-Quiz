@@ -17,6 +17,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.SkinBase;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Modality;
@@ -49,6 +50,8 @@ public class QuestionWindow implements Initializable {
         stage.setTitle("Write question and answer");
         stage.initModality(Modality.WINDOW_MODAL);
         stage.initOwner(packEditor.getStage().getScene().getWindow());
+        stage.getIcons().add(new Image("Images/icon.png"));
+        stage.setResizable(false);
 
         try {
             FXMLLoader loader = new FXMLLoader(Main.class.getResource("View/QuestionWindow.fxml"));

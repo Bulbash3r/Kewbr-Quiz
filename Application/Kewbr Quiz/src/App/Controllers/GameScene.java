@@ -427,7 +427,7 @@ public class GameScene implements Initializable {
     private void nextQuestion() {
 
         if (currPack.getQuestions().size() == questionsCounter) {
-
+            endGame();
         }
         Question currQuestion = currPack.getQuestions().get(questionsCounter);
 
@@ -438,6 +438,33 @@ public class GameScene implements Initializable {
 
     private void endGame() {
 
+        int max = 0;
+        int winnersCount = 0;
+        String[] winners;
+
+        for (Map.Entry<String, User> entry : users.entrySet()) {
+
+            if (entry.getValue().getScore() == max)
+                winnersCount++;
+
+            if (entry.getValue().getScore() > max) {
+                winnersCount = 1;
+                max = entry.getValue().getScore();
+            }
+        }
+
+        winners = new String[winnersCount];
+        int i = 0;
+
+        for (Map.Entry<String, User> entry : users.entrySet()) {
+
+            if (entry.getValue().getScore() == max)
+                winners[i++] = entry.getKey();
+        }
+
+        server.writeWinner(winners);
+
+        manager.createWinnersWindow(winners);
     }
 
     public void addQuestion(String question) {

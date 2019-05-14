@@ -111,4 +111,8 @@ public class User {
         score++;
         lblScore.setText("" + score);
     }
+
+    public int getScore() {
+        return score;
+    }
 }

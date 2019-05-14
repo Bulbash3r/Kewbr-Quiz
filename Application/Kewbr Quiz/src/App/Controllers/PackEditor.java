@@ -12,6 +12,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
@@ -207,8 +208,11 @@ public class PackEditor implements Initializable {
         this.manager = manager;
 
         stage = new Stage();
+        stage.setTitle("Pack Editor");
         stage.initModality(Modality.WINDOW_MODAL);
         stage.initOwner(manager.getMainMenu().getStage().getScene().getWindow());
+        stage.getIcons().add(new Image("Images/icon.png"));
+        stage.setResizable(false);
 
         try {
             FXMLLoader loader = new FXMLLoader(Main.class.getResource("View/PackEditor.fxml"));
