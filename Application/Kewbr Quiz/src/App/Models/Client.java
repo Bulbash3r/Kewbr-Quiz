@@ -72,13 +72,20 @@ public class Client {
      * @see Channel#writeAndFlush(Object)
      */
     public void writeMessage(String message) {
+
         channel.writeAndFlush("<M>" + gameScene.getNickname() + "</MN>" + message + "\r\n");
+
         Platform.runLater(new Runnable() {
             @Override
             public void run() {
                 gameScene.print("[" + gameScene.getNickname() + "] " + message);
             }
         });
+    }
+
+    public void writeAnswer(String answer) {
+
+        channel.writeAndFlush("<A>" + gameScene.getNickname() + "</AN>" + answer + "\r\n");
     }
 }
 

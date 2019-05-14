@@ -84,6 +84,9 @@ public class GameScene implements Initializable {
     TextField txtFieldChatClient;
     private @FXML
     TextField txtFieldChatHost;
+    private @FXML
+    TextField txtFieldAnswer;
+
 
     private @FXML
     ScrollPane scrollPaneChatHost;
@@ -98,11 +101,12 @@ public class GameScene implements Initializable {
 
     private boolean isServer;
     private boolean isPaused = false;
+    private boolean isAnswered = false;
 
     private String nickname;
     private int questionsCounter = 0;
-    private int timeForAnswer = 60;
-    private int currentTime;
+    private static final int timeForAnswer = 60;
+    private volatile int currentTime;
     private Timeline timeline;
     private int score = 0;
 
@@ -260,6 +264,25 @@ public class GameScene implements Initializable {
                 manager.backToMenu();
             }
         });
+
+        btnConfirm.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+
+                if (!txtFieldAnswer.getText().isEmpty() && currentTime > 0) {
+                    client.writeAnswer(txtFieldAnswer.getText());
+                    clearAnswer();
+                    isAnswered = true;
+                }
+            }
+        });
+
+        txtFieldAnswer.setOnKeyReleased(new EventHandler<KeyEvent>() {
+            @Override
+            public void handle(KeyEvent event) {
+
+            }
+        });
     }
 
     /**
@@ -276,13 +299,19 @@ public class GameScene implements Initializable {
         }
     }
 
+    private void clearAnswer() {
+        txtFieldAnswer.clear();
+    }
+
     public void doTime() {
         currentTime = timeForAnswer;
 
         if (isServer)
             lblTimerHost.setText(String.valueOf(currentTime));
-        else
+        else {
             lblTimerClient.setText(String.valueOf(currentTime));
+            isAnswered = false;
+        }
 
         if (timeline == null) {
             timeline = new Timeline();
@@ -397,12 +426,16 @@ public class GameScene implements Initializable {
         questionsCounter++;
         voteCount = 0;
 
+        doTime();
+
         vboxQuestionsClient.getChildren().add(new Label(questionsCounter + ": " + question));
     }
 
     public void addQuestion(String question, String answer) {
         questionsCounter++;
         voteCount = 0;
+
+        doTime();
 
         for (Map.Entry<String, User> entry : users.entrySet())
             entry.getValue().resetButtons();

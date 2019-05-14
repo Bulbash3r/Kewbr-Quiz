@@ -18,11 +18,11 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="552.0" prefWidth="661.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="552.0" prefWidth="661.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <StackPane prefHeight="345.0" prefWidth="504.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <BorderPane fx:id="brdPaneClient" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #1D2228;">
+            <BorderPane fx:id="brdPaneClient" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #1D2228;" visible="false">
                <top>
                   <AnchorPane BorderPane.alignment="CENTER">
                      <children>
@@ -108,14 +108,14 @@
                      <children>
                         <ScrollPane prefHeight="120.0">
                            <content>
-                              <VBox fx:id="vboxQuestionsClient" alignment="TOP_CENTER" maxWidth="434.0" prefWidth="434.0" />
+                              <VBox fx:id="vboxQuestionsClient" maxWidth="434.0" prefWidth="434.0" />
                            </content>
                         </ScrollPane>
                      </children>
                   </VBox>
                </center>
             </BorderPane>
-            <BorderPane fx:id="brdPaneHost" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #1D2228;" visible="false">
+            <BorderPane fx:id="brdPaneHost" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #1D2228;">
                <right>
                   <VBox alignment="TOP_CENTER" spacing="1.0" BorderPane.alignment="CENTER">
                      <children>
@@ -137,7 +137,7 @@
                                  <children>
                                     <ScrollPane prefHeight="120.0" prefWidth="300.0" style="-fx-background-color: #e1e2e2;">
                                        <content>
-                                          <VBox fx:id="vboxQuestionsHost" alignment="TOP_CENTER" maxWidth="298.0" prefWidth="298.0" />
+                                          <VBox fx:id="vboxQuestionsHost" maxWidth="298.0" prefWidth="298.0" />
                                        </content>
                                     </ScrollPane>
                                     <HBox spacing="10.0">
