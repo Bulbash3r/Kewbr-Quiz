@@ -17,12 +17,17 @@
  *  Взаимодействие с пользователем, удобство и простота использования – минимальное количество действий для выполнения задачи пользователя.
 
 ### 1.5 Диаграммы
+
 ####1. Диаграмма развёртывания As is/To be
+
 ####2. Диаграмма компонентов As is/To be
+
 ####3. Диаграмма классов package Client
+
 [![Диаграмма класов package Client](https://raw.githubusercontent.com/Bulbash3r/Kewbr-Quiz/master/Research%20of%20architectural%20solution/Client.png)](https://raw.githubusercontent.com/Bulbash3r/Kewbr-Quiz/master/Research%20of%20architectural%20solution/Client.png)
 
 ####4. Диаграмма классов визуальной части приложения
+
 [![Диаграмма классов визуальной части приложения](https://raw.githubusercontent.com/Bulbash3r/Kewbr-Quiz/master/Research%20of%20architectural%20solution/Main.png "Диаграмма классов визуальной части приложения")](https://raw.githubusercontent.com/Bulbash3r/Kewbr-Quiz/master/Research%20of%20architectural%20solution/Main.png "Диаграмма классов визуальной части приложения")
 
 ## 2. Анализ архитектуры
