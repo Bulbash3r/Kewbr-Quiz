@@ -110,6 +110,21 @@ public class Server {
         for (Channel c : ServerHandler.getChannels())
             c.writeAndFlush("<HA>" + nickname + "</HN>" + cmd + "\r\n");
     }
+
+    public void writeWinner(String[] winners) {
+
+        String message = "<W>";
+
+        for (String string : winners) {
+            message += string;
+            message += "</WN>";
+        }
+
+        message = message.substring(0, message.length() - 6);
+
+        for (Channel c : ServerHandler.getChannels())
+            c.writeAndFlush(message + "\r\n");
+    }
 }
 
 /**

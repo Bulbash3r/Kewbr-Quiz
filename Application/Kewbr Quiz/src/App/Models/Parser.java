@@ -5,18 +5,15 @@ public class Parser {
     public static String[] parse(String message) {
         String[] strings;
 
-        if (message.substring(0, 3).equals("<M>") || message.substring(0, 3).equals("<A>") || message.substring(0, 4).equals("<HA>"))
-            strings = new String[3];
-        else
-            strings = new String[2];
-
         switch (message.substring(0, 3)) {
             case "<Q>":
+                strings = new String[2];
                 strings[0] = "Q";
                 strings[1] = message.substring(3);
                 break;
 
             case "<A>":
+                strings = new String[3];
                 strings[0] = "A";
                 message = message.substring(3);
                 strings[1] = message.split("</AN>")[0];
@@ -24,6 +21,7 @@ public class Parser {
                 break;
 
             case "<M>":
+                strings = new String[3];
                 strings[0] = "M";
                 message = message.substring(3);
                 strings[1] = message.split("</MN>")[0];
@@ -31,11 +29,13 @@ public class Parser {
                 break;
 
             case "<H>":
+                strings = new String[2];
                 strings[0] = "H";
                 strings[1] = message.substring(3);
                 break;
 
             case "<HA":
+                strings = new String[3];
                 strings[0] = "HA";
                 message = message.substring(4);
                 strings[1] = message.split("</HN>")[0];
@@ -43,16 +43,22 @@ public class Parser {
                 break;
 
             case "<I>":
+                strings = new String[2];
                 strings[0] = "I";
                 strings[1] = message.substring(3);
                 break;
 
             case "<O>":
+                strings = new String[2];
                 strings[0] = "O";
                 strings[1] = message.substring(3);
                 break;
 
+            case "<W>":
+                message = message.substring(3);
+
             default:
+                strings = null;
                 break;
         }
 

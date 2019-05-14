@@ -24,6 +24,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.ResourceBundle;
 import java.util.Set;
+import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * Класс контроллера игровой сцены
@@ -106,7 +107,7 @@ public class GameScene implements Initializable {
     private String nickname;
     private int questionsCounter = 0;
     private static final int timeForAnswer = 60;
-    private volatile int currentTime;
+    private volatile AtomicInteger currentTime = new AtomicInteger();
     private Timeline timeline;
     private int score = 0;
 
@@ -269,10 +270,11 @@ public class GameScene implements Initializable {
             @Override
             public void handle(ActionEvent event) {
 
-                if (!txtFieldAnswer.getText().isEmpty() && currentTime > 0) {
+                if (!txtFieldAnswer.getText().isEmpty() && currentTime.get() > 0) {
                     client.writeAnswer(txtFieldAnswer.getText());
                     clearAnswer();
                     isAnswered = true;
+                    btnConfirm.setDisable(true);
                 }
             }
         });
@@ -281,6 +283,15 @@ public class GameScene implements Initializable {
             @Override
             public void handle(KeyEvent event) {
 
+                if (event.getCode() == KeyCode.ENTER) {
+
+                    if (!txtFieldAnswer.getText().isEmpty() && currentTime.get() > 0) {
+                        client.writeAnswer(txtFieldAnswer.getText());
+                        clearAnswer();
+                        isAnswered = true;
+                        btnConfirm.setDisable(true);
+                    }
+                }
             }
         });
     }
@@ -304,7 +315,7 @@ public class GameScene implements Initializable {
     }
 
     public void doTime() {
-        currentTime = timeForAnswer;
+        currentTime.set(timeForAnswer);
 
         if (isServer)
             lblTimerHost.setText(String.valueOf(currentTime));
@@ -322,14 +333,14 @@ public class GameScene implements Initializable {
             KeyFrame keyFrame = new KeyFrame(Duration.seconds(1.0), new EventHandler<ActionEvent>() {
                 @Override
                 public void handle(ActionEvent event) {
-                    currentTime--;
+                    currentTime.decrementAndGet();
 
                     if (isServer)
                         lblTimerHost.setText(String.valueOf(currentTime));
                     else
                         lblTimerClient.setText(String.valueOf(currentTime));
 
-                    if (currentTime <= 0)
+                    if (currentTime.get() <= 0)
                         timeline.stop();
                 }
             });
@@ -415,6 +426,9 @@ public class GameScene implements Initializable {
 
     private void nextQuestion() {
 
+        if (currPack.getQuestions().size() == questionsCounter) {
+
+        }
         Question currQuestion = currPack.getQuestions().get(questionsCounter);
 
         addQuestion(currQuestion.getQuestion(), currQuestion.getAnswer());
@@ -422,11 +436,16 @@ public class GameScene implements Initializable {
         server.writeQuestion(currQuestion.getQuestion());
     }
 
+    private void endGame() {
+
+    }
+
     public void addQuestion(String question) {
         questionsCounter++;
         voteCount = 0;
 
         doTime();
+        btnConfirm.setDisable(false);
 
         vboxQuestionsClient.getChildren().add(new Label(questionsCounter + ": " + question));
     }
