@@ -93,6 +93,10 @@ public class GameScene implements Initializable {
     ScrollPane scrollPaneChatHost;
     private @FXML
     ScrollPane scrollPaneChatClient;
+    private @FXML
+    ScrollPane scrollPaneQuestionsHost;
+    private @FXML
+    ScrollPane scrollPaneQuestionsClient;
 
 
     private ControllersManager manager;
@@ -197,8 +201,10 @@ public class GameScene implements Initializable {
              */
             @Override
             public void handle(ActionEvent event) {
-                if (!isPaused && timeline != null)
+                if (!isPaused && timeline != null) {
+                    server.writeHost("Stop");
                     stopTime();
+                }
                 server.shutdown();
                 manager.backToMenu();
             }
@@ -301,11 +307,15 @@ public class GameScene implements Initializable {
      * @param message -- сообщение, которое нужно напечатать
      */
     public void print(String message) {
+
+        Label label = new Label(message);
+        label.setWrapText(true);
+
         if (isServer) {
-            vboxChatHost.getChildren().add(new Label(message));
+            vboxChatHost.getChildren().add(label);
             scrollPaneChatHost.setVvalue(1.0);
         } else {
-            vboxChatClient.getChildren().add(new Label(message));
+            vboxChatClient.getChildren().add(label);
             scrollPaneChatClient.setVvalue(1.0);
         }
     }
@@ -426,8 +436,15 @@ public class GameScene implements Initializable {
 
     private void nextQuestion() {
 
+        if (questionsCounter != 0) {
+
+            for (Map.Entry<String, User> entry : users.entrySet())
+                server.writeMessage(entry.getKey() + "answered \"" + entry.getValue().getAnswer() + "\"");
+        }
+
         if (currPack.getQuestions().size() == questionsCounter) {
             endGame();
+            return;
         }
         Question currQuestion = currPack.getQuestions().get(questionsCounter);
 
@@ -463,6 +480,20 @@ public class GameScene implements Initializable {
         }
 
         server.writeWinner(winners);
+        server.shutdown();
+
+        if (!isPaused && timeline != null)
+            stopTime();
+
+        manager.createWinnersWindow(winners);
+    }
+
+    public void endGame(String[] winners) {
+
+        client.shutdown();
+
+        if (!isPaused && timeline != null)
+            stopTime();
 
         manager.createWinnersWindow(winners);
     }
@@ -474,7 +505,11 @@ public class GameScene implements Initializable {
         doTime();
         btnConfirm.setDisable(false);
 
-        vboxQuestionsClient.getChildren().add(new Label(questionsCounter + ": " + question));
+        Label label = new Label(questionsCounter + ": " + question);
+        label.setWrapText(true);
+
+        vboxQuestionsClient.getChildren().add(label);
+        scrollPaneQuestionsClient.setVvalue(1.0);
     }
 
     public void addQuestion(String question, String answer) {
@@ -486,7 +521,11 @@ public class GameScene implements Initializable {
         for (Map.Entry<String, User> entry : users.entrySet())
             entry.getValue().resetButtons();
 
-        vboxQuestionsHost.getChildren().add(new Label(questionsCounter + ": " + question));
+        Label label = new Label(questionsCounter + ": " + question);
+        label.setWrapText(true);
+
+        vboxQuestionsHost.getChildren().add(label);
+        scrollPaneQuestionsHost.setVvalue(1.0);
         lblAnswer.setText(answer);
     }
 

@@ -95,6 +95,14 @@ public class User {
         lblAnswer.setText(answer);
     }
 
+    public String getAnswer() {
+        return lblAnswer.getText();
+    }
+
+    public void setAnswerVisible(boolean visible) {
+        lblAnswer.setVisible(visible);
+    }
+
     public Button getBtnRight() {
         return btnRight;
     }

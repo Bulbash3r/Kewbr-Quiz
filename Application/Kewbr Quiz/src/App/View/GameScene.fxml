@@ -18,7 +18,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="552.0" prefWidth="661.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="552.0" prefWidth="661.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <StackPane prefHeight="345.0" prefWidth="504.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -56,11 +56,11 @@
                   </AnchorPane>
                </top>
                <right>
-                  <VBox alignment="TOP_CENTER" spacing="1.0" BorderPane.alignment="CENTER">
+                  <VBox alignment="TOP_CENTER" spacing="5.0" BorderPane.alignment="CENTER">
                      <children>
                         <ScrollPane fx:id="scrollPaneChatClient" prefHeight="327.0">
                            <content>
-                              <VBox fx:id="vboxChatClient" prefWidth="153.0" />
+                              <VBox fx:id="vboxChatClient" maxWidth="147.0" prefWidth="147.0" />
                            </content>
                         </ScrollPane>
                         <TextField fx:id="txtFieldChatClient" promptText="Write your message" style="-fx-background-color: #E1E2E2;" />
@@ -106,7 +106,7 @@
                         <Insets bottom="55.0" right="10.0" />
                      </BorderPane.margin>
                      <children>
-                        <ScrollPane prefHeight="120.0">
+                        <ScrollPane fx:id="scrollPaneQuestionsClient" prefHeight="120.0">
                            <content>
                               <VBox fx:id="vboxQuestionsClient" maxWidth="434.0" prefWidth="434.0" />
                            </content>
@@ -117,7 +117,7 @@
             </BorderPane>
             <BorderPane fx:id="brdPaneHost" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #1D2228;">
                <right>
-                  <VBox alignment="TOP_CENTER" spacing="1.0" BorderPane.alignment="CENTER">
+                  <VBox alignment="TOP_CENTER" spacing="5.0" BorderPane.alignment="CENTER">
                      <children>
                         <ScrollPane fx:id="scrollPaneChatHost" prefHeight="327.0" style="-fx-background-color: #e1e2e2;">
                            <content>
@@ -135,7 +135,7 @@
                            <children>
                               <VBox>
                                  <children>
-                                    <ScrollPane prefHeight="120.0" prefWidth="300.0" style="-fx-background-color: #e1e2e2;">
+                                    <ScrollPane fx:id="scrollPaneQuestionsHost" prefHeight="120.0" prefWidth="300.0" style="-fx-background-color: #e1e2e2;">
                                        <content>
                                           <VBox fx:id="vboxQuestionsHost" maxWidth="298.0" prefWidth="298.0" />
                                        </content>
@@ -143,7 +143,7 @@
                                     <HBox spacing="10.0">
                                        <children>
                                           <Label text="Answer:" textFill="#e1e2e2" />
-                                          <Label fx:id="lblAnswer" text="lblAnswer" textFill="#e1e2e2" />
+                                          <Label fx:id="lblAnswer" textFill="#e1e2e2" />
                                        </children>
                                     </HBox>
                                  </children>
@@ -174,7 +174,7 @@
                               </VBox>
                            </children>
                         </HBox>
-                        <Label fx:id="lblTimerHost" layoutX="562.0" layoutY="60.0" text="Timer" textFill="#e1e2e2" AnchorPane.bottomAnchor="60.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="60.0" />
+                        <Label fx:id="lblTimerHost" layoutX="562.0" layoutY="60.0" textFill="#e1e2e2" AnchorPane.bottomAnchor="60.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="60.0" />
                      </children>
                   </AnchorPane>
                </top>

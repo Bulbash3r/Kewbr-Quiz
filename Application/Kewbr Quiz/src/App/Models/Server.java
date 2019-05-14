@@ -19,6 +19,8 @@ import javafx.application.Platform;
 import java.io.IOException;
 import java.net.InetAddress;
 import java.util.Map;
+import java.util.Timer;
+import java.util.TimerTask;
 
 /**
  * Класс, представляющий сервер
@@ -69,6 +71,7 @@ public class Server {
      * @see ChannelFuture#sync()
      */
     public void shutdown() {
+
         bossGroup.shutdownGracefully();
         workerGroup.shutdownGracefully();
         if (channelFuture != null) {
@@ -120,7 +123,7 @@ public class Server {
             message += "</WN>";
         }
 
-        message = message.substring(0, message.length() - 6);
+        message = message.substring(0, message.length() - 5);
 
         for (Channel c : ServerHandler.getChannels())
             c.writeAndFlush(message + "\r\n");
@@ -243,7 +246,7 @@ class ServerHandler extends SimpleChannelInboundHandler <String> {
                 Platform.runLater(new Runnable() {
                     @Override
                     public void run() {
-                        gameScene.print("[" + strings[1] + "] " + strings[2] + "\r\n");
+                        gameScene.print("[" + strings[1] + "] " + strings[2]);
                     }
                 });
                 break;
@@ -270,7 +273,7 @@ class ServerHandler extends SimpleChannelInboundHandler <String> {
                 Platform.runLater(new Runnable() {
                     @Override
                     public void run() {
-                        gameScene.print("[" + strings[1] + "] has joined!!!\r\n");
+                        gameScene.print("[" + strings[1] + "] has joined!!!");
                         gameScene.addUser(strings[1]);
                     }
                 });
@@ -285,7 +288,7 @@ class ServerHandler extends SimpleChannelInboundHandler <String> {
                 Platform.runLater(new Runnable() {
                     @Override
                     public void run() {
-                        gameScene.print("[" + strings[1] + "] has left!!!\r\n");
+                        gameScene.print("[" + strings[1] + "] has left!!!");
                         gameScene.removeUser(strings[1]);
                     }
                 });

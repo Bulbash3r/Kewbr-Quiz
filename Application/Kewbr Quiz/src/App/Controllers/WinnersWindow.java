@@ -6,6 +6,7 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -40,6 +41,7 @@ public class WinnersWindow implements Initializable {
         this.manager = manager;
 
         stage = new Stage();
+        stage.setTitle("Game Over");
         stage.initModality(Modality.WINDOW_MODAL);
         stage.initOwner(manager.getMainMenu().getStage().getScene().getWindow());
         stage.getIcons().add(new Image("Images/icon.png"));
@@ -61,16 +63,25 @@ public class WinnersWindow implements Initializable {
 
         for (String nickname : winners) {
 
-            ImageView icon = new ImageView(new Image("Images/winner_winner.png"));
-            icon.setFitHeight(32.0);
-            icon.setFitWidth(32.0);
-            icon.setSmooth(true);
+            if (nickname.equals("W"))
+                continue;
+
+            ImageView icon_left = new ImageView(new Image("Images/winner_winner.png"));
+            icon_left.setFitHeight(32.0);
+            icon_left.setFitWidth(32.0);
+            icon_left.setSmooth(true);
+
+            ImageView icon_right = new ImageView(new Image("Images/winner_winner.png"));
+            icon_right.setFitHeight(32.0);
+            icon_right.setFitWidth(32.0);
+            icon_right.setSmooth(true);
 
             Label lblNickname = new Label(nickname);
             lblNickname.setFont(Font.font("Berlin Sans FB Regular", 18.0));
             lblNickname.setTextFill(Paint.valueOf("#e1e2e2"));
 
-            HBox hBox = new HBox(10.0, icon, lblNickname, icon);
+            HBox hBox = new HBox(10.0, icon_left, lblNickname, icon_right);
+            hBox.setAlignment(Pos.CENTER);
 
             vBoxWinners.getChildren().add(hBox);
         }

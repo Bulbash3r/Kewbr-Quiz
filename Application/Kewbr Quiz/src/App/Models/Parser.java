@@ -56,6 +56,16 @@ public class Parser {
 
             case "<W>":
                 message = message.substring(3);
+                strings = new String[message.split("</WN>").length + 1];
+
+                strings[0] = "W";
+                int i = 1;
+
+                for (String string : message.split("</WN>")) {
+                    strings[i] = string;
+                    i++;
+                }
+                break;
 
             default:
                 strings = null;

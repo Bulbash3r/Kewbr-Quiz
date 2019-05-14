@@ -12,6 +12,8 @@ import io.netty.handler.codec.string.StringDecoder;
 import io.netty.handler.codec.string.StringEncoder;
 import javafx.application.Platform;
 
+import java.util.Map;
+
 /**
  * Класс представляющий клиента
  * @author NikiTer
@@ -172,29 +174,35 @@ class ClientHandler extends SimpleChannelInboundHandler<String> {
 
             case "H":
 
-                switch (strings[1]) {
-                    case "Start":
-                        if (gameScene.isPaused())
-                            gameScene.continueTime();
-                        else
-                            gameScene.doTime();
-                        break;
+                Platform.runLater(new Runnable() {
+                    @Override
+                    public void run() {
 
-                    case "Stop":
-                        if (!gameScene.isPaused())
-                            gameScene.stopTime();
-                        break;
+                        switch (strings[1]) {
+                            case "Start":
+                                if (gameScene.isPaused())
+                                    gameScene.continueTime();
+                                else
+                                    gameScene.doTime();
+                                break;
 
-                    default:
-                        break;
-                }
+                            case "Stop":
+                                if (!gameScene.isPaused())
+                                    gameScene.stopTime();
+                                break;
+
+                            default:
+                                break;
+                        }
+                    }
+                });
                 break;
 
             case "I":
                 Platform.runLater(new Runnable() {
                     @Override
                     public void run() {
-                        gameScene.print("[" + strings[1] + "] has joined!!!\r\n");
+                        gameScene.print("[" + strings[1] + "] has joined!!!");
                         gameScene.addUser(strings[1]);
                     }
                 });
@@ -204,7 +212,7 @@ class ClientHandler extends SimpleChannelInboundHandler<String> {
                 Platform.runLater(new Runnable() {
                     @Override
                     public void run() {
-                        gameScene.print("[" + strings[1] + "] has left!!!\r\n");
+                        gameScene.print("[" + strings[1] + "] has left!!!");
                         gameScene.removeUser(strings[1]);
                     }
                 });
@@ -215,6 +223,15 @@ class ClientHandler extends SimpleChannelInboundHandler<String> {
                     @Override
                     public void run() {
                         gameScene.checkAnswer(strings[1], strings[2], false);
+                    }
+                });
+                break;
+
+            case "W":
+                Platform.runLater(new Runnable() {
+                    @Override
+                    public void run() {
+                        gameScene.endGame(strings);
                     }
                 });
                 break;
