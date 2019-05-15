@@ -439,7 +439,7 @@ public class GameScene implements Initializable {
         if (questionsCounter != 0) {
 
             for (Map.Entry<String, User> entry : users.entrySet())
-                server.writeMessage(entry.getKey() + "answered \"" + entry.getValue().getAnswer() + "\"");
+                server.writeMessage(entry.getKey() + " answered \"" + entry.getValue().getAnswer() + "\"");
         }
 
         if (currPack.getQuestions().size() == questionsCounter) {

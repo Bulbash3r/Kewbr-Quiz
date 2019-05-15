@@ -57,7 +57,7 @@ public class PackChoose implements Initializable {
             e.printStackTrace();
         }
 
-        File file = new File("src/Directory.txt");
+        File file = new File("Directory.txt");
         if (file.exists()) {
             try {
                 Scanner scanner = new Scanner(file);

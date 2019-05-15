@@ -121,7 +121,7 @@ public class PackEditor implements Initializable {
             }
         });
 
-        File file = new File("src/Directory.txt");
+        File file = new File("Directory.txt");
         if (file.exists()) {
             try {
                 Scanner scanner = new Scanner(file);
@@ -245,7 +245,7 @@ public class PackEditor implements Initializable {
         if (dir == null || !dir.exists())
             return;
         try {
-            FileWriter fileWriter = new FileWriter(new File("src/Directory.txt"), false);
+            FileWriter fileWriter = new FileWriter(new File("Directory.txt"), false);
             fileWriter.write(dir.getAbsolutePath());
             fileWriter.close();
         } catch (IOException ex) {
